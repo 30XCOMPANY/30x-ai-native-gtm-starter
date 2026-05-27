@@ -370,13 +370,13 @@ p { margin: 0; }
    ============================================================ */
 .timeline {
   position: relative;
-  padding: 90px 32px 110px;
+  padding: 90px 56px 110px;
   background: var(--paper);
   border: 1px solid rgba(15,14,19,0.1);
   border-radius: var(--r-l);
   overflow-x: auto; overflow-y: visible;
 }
-.timeline-rail { position: relative; height: 130px; min-width: 1100px; }
+.timeline-rail { position: relative; height: 130px; min-width: 1100px; padding: 0 24px; }
 .timeline-axis {
   position: absolute; top: 50%; left: 0; right: 0;
   height: 1.5px;
@@ -690,7 +690,7 @@ section { scroll-margin-top: 100px; }
           <path class="flow-arrow delay-2" d="M 140 175 Q 200 175 240 175" marker-end="url(#a1)"/>
           <path class="flow-arrow delay-3" d="M 140 280 L 240 280" marker-end="url(#a1)"/>
           <path class="flow-arrow delay-4" d="M 140 385 L 240 385" marker-end="url(#a1)"/>
-          <path class="flow-arrow" d="M 360 230 L 460 230" marker-end="url(#a1)"/>
+          <path class="flow-arrow" d="M 360 230 L 430 230" marker-end="url(#a1)"/>
           <defs>
             <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
               <path d="M 0 0 L 6 4 L 0 8 z" fill="var(--ink)"/>
@@ -706,9 +706,9 @@ section { scroll-margin-top: 100px; }
             <text class="flow-text" x="300" y="244" style="font-family:var(--font-mono);font-size:10px;fill:var(--ink-soft);">reads + reasons</text>
           </g>
           <g>
-            <rect class="flow-box" x="460" y="180" width="120" height="100" rx="14"/>
-            <text class="flow-text" x="520" y="220" style="font-family:var(--font-sans);font-weight:600;font-size:14px;">outputs/</text>
-            <text class="flow-text" x="520" y="244" style="font-family:var(--font-mono);font-size:10px;fill:var(--ink-soft);">briefs · decks · pitches</text>
+            <rect class="flow-box" x="430" y="180" width="150" height="100" rx="14"/>
+            <text class="flow-text" x="505" y="220" style="font-family:var(--font-sans);font-weight:600;font-size:14px;">outputs/</text>
+            <text class="flow-text" x="505" y="244" style="font-family:var(--font-mono);font-size:10px;fill:var(--ink-soft);">briefs · decks · pitches</text>
           </g>
         </svg>
       </div>
@@ -756,58 +756,58 @@ section { scroll-margin-top: 100px; }
       <span class="hint">hover for the trigger</span>
       <div class="timeline-rail">
         <div class="timeline-axis"></div>
-        <div class="timeline-year" style="left: 6%;">2022</div>
-        <div class="timeline-year" style="left: 28%;">2023</div>
-        <div class="timeline-year" style="left: 50%;">2024</div>
+        <div class="timeline-year" style="left: 4%;">2022</div>
+        <div class="timeline-year" style="left: 25%;">2023</div>
+        <div class="timeline-year" style="left: 48%;">2024</div>
         <div class="timeline-year" style="left: 72%;">2025</div>
-        <div class="timeline-year" style="left: 94%;">2026</div>
+        <div class="timeline-year" style="left: 96%;">2026</div>
 
-        <div class="death-marker" data-x="9" data-side="above">
+        <div class="death-marker" data-x="6" data-side="above">
           <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           <span class="name">Jasper</span>
           <span class="trigger">GPT-3.5 cut ARR proj ~40%</span>
         </div>
-        <div class="death-marker" data-x="21" data-side="below">
+        <div class="death-marker" data-x="18" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M6 18L18 6"/></svg>
           <span class="name">Chegg</span>
           <span class="trigger">ChatGPT impact → -48% in a day</span>
         </div>
-        <div class="death-marker" data-x="34" data-side="above">
+        <div class="death-marker" data-x="30" data-side="above">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
           <span class="name">PDF Chat</span>
           <span class="trigger">OpenAI DevDay '23 → category cleared</span>
         </div>
-        <div class="death-marker" data-x="44" data-side="below">
+        <div class="death-marker" data-x="40" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M12 4v16"/></svg>
           <span class="name">Inflection</span>
           <span class="trigger">$4B → MSFT non-acquisition (Mar '24)</span>
         </div>
-        <div class="death-marker" data-x="55" data-side="above">
+        <div class="death-marker" data-x="50" data-side="above">
           <svg viewBox="0 0 24 24"><path d="M3 12h18"/></svg>
           <span class="name">Stability</span>
           <span class="trigger">$8M/mo burn → CEO resign, layoffs</span>
         </div>
-        <div class="death-marker" data-x="64" data-side="below">
+        <div class="death-marker" data-x="59" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
           <span class="name">Adept</span>
           <span class="trigger">$1B → Amazon license + team (Jun '24)</span>
         </div>
-        <div class="death-marker" data-x="74" data-side="above">
+        <div class="death-marker" data-x="69" data-side="above">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
           <span class="name">Character.AI</span>
           <span class="trigger">$5B → $2.7B Google reverse acqui-hire</span>
         </div>
-        <div class="death-marker" data-x="82" data-side="below">
+        <div class="death-marker" data-x="78" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M12 2L3 21h18z"/></svg>
           <span class="name">Humane Pin</span>
           <span class="trigger">$700M → $116M to HP, units bricked</span>
         </div>
-        <div class="death-marker" data-x="89" data-side="above">
+        <div class="death-marker" data-x="86" data-side="above">
           <svg viewBox="0 0 24 24"><path d="M3 12c0-4 4-8 9-8s9 4 9 8-4 8-9 8"/></svg>
           <span class="name">Voice AI</span>
           <span class="trigger">gpt-realtime → margins collapsed</span>
         </div>
-        <div class="death-marker" data-x="95" data-side="below">
+        <div class="death-marker" data-x="93" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 5 2 8L12 17l-6.5 5 2-8L2 9h7z" fill="none"/></svg>
           <span class="name">Rewind</span>
           <span class="trigger">a16z $350M → Meta acquired (Dec '25)</span>
