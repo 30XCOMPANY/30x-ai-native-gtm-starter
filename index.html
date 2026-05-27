@@ -145,8 +145,9 @@ body::before {
   position: absolute; inset: -100px -20% -40px;
   pointer-events: none; z-index: 0;
   overflow: hidden;
-  mask-image: radial-gradient(ellipse 70% 78% at 50% 50%, black 30%, transparent 82%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 78% at 50% 50%, black 30%, transparent 82%);
+  /* doughnut mask: hide center where H1 sits, show ring of viz outside */
+  mask-image: radial-gradient(ellipse 38% 52% at 50% 50%, transparent 0%, transparent 55%, black 75%, black 88%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 38% 52% at 50% 50%, transparent 0%, transparent 55%, black 75%, black 88%, transparent 100%);
 }
 .hero-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-bg .hb-line { stroke: var(--ink); stroke-width: 0.9; opacity: 0.28; fill: none; stroke-dasharray: 2 5; }
