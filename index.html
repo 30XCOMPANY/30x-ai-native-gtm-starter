@@ -139,31 +139,96 @@ body::before {
 /* ============================================================
    hero
    ============================================================ */
-.hero { padding: 100px 0 140px; text-align: center; position: relative; }
+.hero { padding: 80px 0 100px; text-align: center; position: relative; }
 .hero > *:not(.hero-bg) { position: relative; z-index: 2; }
 .hero-bg {
-  position: absolute; inset: -60px -10% 0;
+  position: absolute; inset: -100px -20% -40px;
   pointer-events: none; z-index: 0;
   overflow: hidden;
-  mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 25%, transparent 78%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 78% at 50% 50%, black 30%, transparent 82%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 78% at 50% 50%, black 30%, transparent 82%);
 }
 .hero-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-bg .hb-line { stroke: var(--ink); stroke-width: 0.75; opacity: 0.16; fill: none; stroke-dasharray: 2 5; }
-.hero-bg .hb-orbit-line { stroke: var(--ink); stroke-width: 0.5; opacity: 0.1; fill: none; }
+.hero-bg .hb-line { stroke: var(--ink); stroke-width: 0.9; opacity: 0.28; fill: none; stroke-dasharray: 2 5; }
+.hero-bg .hb-orbit-line { stroke: var(--ink); stroke-width: 0.8; opacity: 0.22; fill: none; }
+.hero-bg .hb-orbit-line--accent { stroke: var(--orange-deep); opacity: 0.35; }
 .hero-bg .hb-dot { fill: var(--ink); }
 .hero-bg .hb-dot--accent { fill: var(--orange-deep); }
 .hero-bg .hb-spin-slow { transform-origin: 50% 50%; transform-box: view-box; animation: hb-spin 48s linear infinite; }
 .hero-bg .hb-spin-rev  { transform-origin: 50% 50%; transform-box: view-box; animation: hb-spin 64s linear infinite reverse; }
 .hero-bg .hb-drift     { animation: hb-drift 22s ease-in-out infinite alternate; }
-.hero-bg .hb-pulse-a { animation: hb-pulse 4.5s ease-in-out infinite; }
-.hero-bg .hb-pulse-b { animation: hb-pulse 6s ease-in-out infinite 1.2s; }
-.hero-bg .hb-pulse-c { animation: hb-pulse 5.5s ease-in-out infinite 2.4s; }
+.hero-bg .hb-pulse-a { animation: hb-pulse 3.5s ease-in-out infinite; }
+.hero-bg .hb-pulse-b { animation: hb-pulse 5s ease-in-out infinite 1.2s; }
+.hero-bg .hb-pulse-c { animation: hb-pulse 4.5s ease-in-out infinite 2.4s; }
 .hero-bg .hb-glow {
-  position: absolute; left: 18%; right: 18%; top: 12%; bottom: 12%;
-  background: radial-gradient(ellipse at 50% 50%, rgba(240,176,128,0.22), transparent 65%);
+  position: absolute; left: 10%; right: 10%; top: 5%; bottom: 5%;
+  background:
+    radial-gradient(ellipse at 35% 40%, rgba(240,176,128,0.35), transparent 55%),
+    radial-gradient(ellipse at 65% 60%, rgba(200,228,243,0.40), transparent 55%);
   animation: hb-breathe 9s ease-in-out infinite;
-  filter: blur(28px);
+  filter: blur(48px);
+}
+
+/* hero eyebrow pill */
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font: 500 11.5px/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  margin-bottom: 26px;
+  opacity: 0;
+  animation: rise 1s var(--ease-out) 0s forwards;
+  box-shadow: var(--shadow-sm);
+}
+.hero-eyebrow .pulse-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--orange-deep);
+  position: relative;
+}
+.hero-eyebrow .pulse-dot::after {
+  content: ""; position: absolute; inset: -3px;
+  border-radius: 50%; background: var(--orange-deep);
+  opacity: 0.4; animation: dot-pulse 1.8s ease-out infinite;
+}
+.hero-eyebrow .sep { color: var(--ink-soft); opacity: 0.4; }
+@keyframes dot-pulse {
+  0%   { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* hero stats */
+.hero-stats {
+  display: flex; justify-content: center; gap: 0;
+  margin-top: 56px;
+  opacity: 0;
+  animation: rise 1.2s var(--ease-out) 0.75s forwards;
+}
+.hero-stat {
+  padding: 0 28px;
+  border-left: 1px solid rgba(15,14,19,0.12);
+  text-align: center;
+  min-width: 130px;
+}
+.hero-stat:first-child { border-left: none; }
+.hero-stat .num {
+  font: 500 36px/1 var(--font-sans);
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 6px;
+}
+.hero-stat .num em {
+  font-family: var(--font-serif); font-style: italic;
+  font-weight: 400;
+}
+.hero-stat .lbl {
+  font: 500 10.5px/1 var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 @keyframes hb-spin { to { transform: rotate(360deg); } }
 @keyframes hb-drift {
@@ -474,15 +539,19 @@ body::before {
 }
 .timeline-year {
   position: absolute; top: 50%;
-  transform: translate(-50%, 22px);
+  transform: translate(-50%, 56px);
   font: 500 11px/1 var(--font-mono);
   color: var(--ink-soft);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  background: var(--paper);
+  border-radius: 999px;
+  border: 1px solid rgba(15,14,19,0.08);
 }
 .timeline-year::before {
-  content: ""; position: absolute; left: 50%; top: -16px;
-  width: 1px; height: 10px;
-  background: var(--ink); opacity: 0.35;
+  content: ""; position: absolute; left: 50%; top: -52px;
+  width: 1px; height: 48px;
+  background: var(--ink); opacity: 0.18;
   transform: translateX(-50%);
 }
 .death-marker {
@@ -546,6 +615,11 @@ body::before {
 .death-marker:hover .trigger, .death-marker:focus-visible .trigger {
   opacity: 1; transform: translateX(-50%) translateY(0);
 }
+.death-marker:hover, .death-marker:focus-visible { z-index: 10; }
+
+/* dim neighbors when one marker is hovered */
+.timeline-rail:has(.death-marker:hover) .death-marker:not(:hover) .name { opacity: 0.25; transition: opacity 0.25s; }
+.timeline-rail:has(.death-marker:hover) .death-marker:not(:hover) { opacity: 0.4; transition: opacity 0.25s; }
 
 @keyframes pop {
   0% { transform: translate(-50%, -50%) scale(0); }
@@ -703,34 +777,49 @@ section { scroll-margin-top: 100px; }
   <div class="hero-bg" aria-hidden="true">
     <div class="hb-glow"></div>
     <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
-      <!-- soft orbit rings, slowly rotating -->
-      <g class="hb-spin-slow" opacity="0.9">
-        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="320" ry="220"/>
-        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="450" ry="300"/>
-        <circle class="hb-dot hb-pulse-a" cx="920" cy="350" r="2.5"/>
-        <circle class="hb-dot hb-pulse-b" cx="280" cy="350" r="2"/>
+      <!-- outer orbit rings, slowly rotating -->
+      <g class="hb-spin-slow">
+        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="340" ry="240"/>
+        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="500" ry="340"/>
+        <circle class="hb-dot hb-pulse-a" cx="940" cy="350" r="3"/>
+        <circle class="hb-dot hb-pulse-b" cx="260" cy="350" r="2.5"/>
+        <circle class="hb-dot--accent hb-pulse-c" cx="1100" cy="350" r="3.5"/>
+        <circle class="hb-dot hb-pulse-a" cx="100" cy="350" r="2.5"/>
       </g>
-      <g class="hb-spin-rev" opacity="0.9">
-        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="220" ry="160"/>
-        <circle class="hb-dot--accent hb-pulse-c" cx="600" cy="190" r="2.8"/>
-        <circle class="hb-dot hb-pulse-a" cx="600" cy="510" r="2"/>
+      <g class="hb-spin-rev">
+        <ellipse class="hb-orbit-line--accent" cx="600" cy="350" rx="240" ry="170"/>
+        <circle class="hb-dot--accent hb-pulse-c" cx="600" cy="180" r="3.5"/>
+        <circle class="hb-dot hb-pulse-a" cx="600" cy="520" r="2.5"/>
+        <circle class="hb-dot hb-pulse-b" cx="840" cy="350" r="2.5"/>
       </g>
       <!-- drifting cluster of tiny dots -->
       <g class="hb-drift">
-        <circle class="hb-dot hb-pulse-b" cx="180" cy="180" r="1.6" opacity="0.55"/>
-        <circle class="hb-dot hb-pulse-c" cx="1030" cy="220" r="1.4" opacity="0.45"/>
-        <circle class="hb-dot hb-pulse-a" cx="200" cy="540" r="1.8" opacity="0.5"/>
-        <circle class="hb-dot hb-pulse-b" cx="1010" cy="500" r="1.5" opacity="0.5"/>
-        <circle class="hb-dot--accent hb-pulse-c" cx="120" cy="360" r="1.6" opacity="0.6"/>
-        <circle class="hb-dot hb-pulse-a" cx="1080" cy="360" r="1.5" opacity="0.45"/>
+        <circle class="hb-dot hb-pulse-b" cx="180" cy="170" r="2"/>
+        <circle class="hb-dot hb-pulse-c" cx="1030" cy="200" r="1.8"/>
+        <circle class="hb-dot hb-pulse-a" cx="200" cy="540" r="2.2"/>
+        <circle class="hb-dot hb-pulse-b" cx="1010" cy="510" r="1.8"/>
+        <circle class="hb-dot--accent hb-pulse-c" cx="120" cy="370" r="2"/>
+        <circle class="hb-dot hb-pulse-a" cx="1080" cy="370" r="1.8"/>
+        <circle class="hb-dot hb-pulse-b" cx="380" cy="120" r="1.5"/>
+        <circle class="hb-dot hb-pulse-c" cx="820" cy="600" r="1.8"/>
+        <circle class="hb-dot hb-pulse-a" cx="380" cy="600" r="1.5"/>
+        <circle class="hb-dot--accent hb-pulse-b" cx="820" cy="120" r="2"/>
       </g>
       <!-- subtle dashed connectors -->
-      <path class="hb-line hb-pulse-a" d="M 180 180 Q 400 110 600 190"/>
-      <path class="hb-line hb-pulse-b" d="M 1030 220 Q 820 110 600 190"/>
-      <path class="hb-line hb-pulse-c" d="M 200 540 Q 400 600 600 510"/>
-      <path class="hb-line hb-pulse-a" d="M 1010 500 Q 820 600 600 510"/>
+      <path class="hb-line hb-pulse-a" d="M 180 170 Q 380 90 600 180"/>
+      <path class="hb-line hb-pulse-b" d="M 1030 200 Q 820 90 600 180"/>
+      <path class="hb-line hb-pulse-c" d="M 200 540 Q 400 620 600 520"/>
+      <path class="hb-line hb-pulse-a" d="M 1010 510 Q 820 620 600 520"/>
     </svg>
   </div>
+  <span class="hero-eyebrow">
+    <span class="pulse-dot"></span>
+    OPEN SOURCE
+    <span class="sep">·</span>
+    v1 · MIT
+    <span class="sep">·</span>
+    950 LINES OF RESEARCH
+  </span>
   <h1>AI-native GTM is <em><span class="strike">hard to win</span></em></h1>
   <p class="sub">Foundation models reshuffle the market every six months. Most playbooks weren't built for that.</p>
   <div class="hero-ctas">
@@ -739,6 +828,24 @@ section { scroll-margin-top: 100px; }
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </a>
     <a href="#constitutions" class="btn btn--ghost">Read the manifesto</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">6</span>
+      <span class="lbl">Constitutions</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">22</span>
+      <span class="lbl">Signal sources</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">10</span>
+      <span class="lbl">Death cases</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">42</span>
+      <span class="lbl">Files shipped</span>
+    </div>
   </div>
 </section>
 
