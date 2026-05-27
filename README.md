@@ -78,7 +78,7 @@ Full details in [CLAUDE.md](./CLAUDE.md).
 ## Quickstart
 
 ```bash
-git clone https://github.com/[your-org]/30x-ai-native-gtm-starter my-gtm
+git clone https://github.com/30XCOMPANY/30x-ai-native-gtm-starter my-gtm
 cd my-gtm
 claude
 # then: "run the setup skill on https://yourcompany.com"
@@ -154,7 +154,7 @@ Every claim in this repo traces to one of the six constitutions. If you're contr
 
 ## Contributing
 
-Issues and PRs welcome at [your-repo-url]. Particularly looking for:
+Issues and PRs welcome at https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/issues. Particularly looking for:
 - New death-case entries for `research/01-capability-obsolescence-and-icp.md` (this list will grow with each model release)
 - New signal sources for `context/signal-library.md` as the AI ecosystem evolves
 - Sample-company variations for verticals not yet covered (Helmsman covers agent eval; we'd love samples for AI coding, AI search, AI voice, AI hardware, etc.)
@@ -171,4 +171,4 @@ MIT. See [LICENSE](./LICENSE). Use, fork, ship. Attribution appreciated, not req
 
 ---
 
-> Built by [your name]. Maintained as part of the [30x](https://github.com/[your-org]/30x) family of GTM tooling.
+> Maintained as part of the [30x](https://github.com/30XCOMPANY) family of GTM tooling.
