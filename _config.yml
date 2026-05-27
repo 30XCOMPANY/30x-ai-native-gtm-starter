@@ -4,5 +4,26 @@ theme: jekyll-theme-cayman
 url: https://30xcompany.github.io
 baseurl: /30x-ai-native-gtm-starter
 show_downloads: true
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+
+relative_links:
+  enabled: true
+  collections: true
+
+readme_index:
+  enabled: true
+  remove_originals: false
+  with_frontmatter: true
+
+include:
+  - CLAUDE.md
+  - LICENSE
+
 github:
   repository_url: https://github.com/30XCOMPANY/30x-ai-native-gtm-starter
