@@ -1,142 +1,85 @@
 # 30x AI-Native GTM Starter
 
-> The Claude Code repo for go-to-market when your product changes weekly, your buyer is an engineer, and your next competitor might be the next model release.
+> A scaffold for AI-native go-to-market. Mirrors how a real GTM org actually works — strategy, content, pipeline, assets, ops — and gives Claude Code a place to live in each of them.
 
-This file is the lobby. Claude reads it on every session. Skim in 2 minutes, then dive into `context/` for depth.
+This file is the lobby. Skim in 2 minutes, then navigate to the folder you need.
 
 ---
 
 ## What this repo is
 
-A starter kit for **AI-native companies** — model labs, AI infrastructure, agent companies, AI-first developer tools — to run GTM through Claude Code instead of rebuilding context in every chat window.
+A **structural scaffold** for an AI-native company's GTM operation. Not opinions, not a manifesto — just the folders and entry points a serious GTM team needs, shaped for the fact that:
 
-Clone it. Fill in `context/` once. Run GTM tasks from a single prompt.
+- Your product changes every week
+- Your buyer is an engineer
+- Your real competitor might be the next foundation model release
+
+Fork it. Fill in the templates. Let Claude Code drive the repeatable work.
 
 ---
 
-## Why AI-native GTM needed its own repo
+## How a real GTM org maps to this scaffold
 
-Traditional B2B SaaS GTM playbooks assume: quarterly product cycles, business buyers, LinkedIn outbound, seat-based pricing, competitors who don't ship 10x improvements overnight. **None of that holds for AI-native companies.**
-
-| Dimension | Traditional SaaS GTM | AI-Native Reality |
+| What you do | Where it lives | First file to open |
 |---|---|---|
-| Product cadence | Quarterly | Weekly (sometimes daily) |
-| ICP stability | Refresh every 6 months | Drifts every month |
-| Buyer profile | Business leader | Engineer / AI-curious PM |
-| Primary GTM motion | Sales-led outbound | PLG + community + open source + integrations |
-| Pricing model | $X / seat / month | Tokens, GPU hours, capacity |
-| Competitor set | Same-category companies | Same-category + the next foundation model |
-
-This repo is structurally inspired by [gtm-starter-kit](https://github.com/KarlRaf/gtm-starter-kit), but philosophically rebuilt around the five constitutions below.
-
----
-
-## The Six Constitutions
-
-Every file in `context/`, `skills/`, and `workflows/` derives from one of these six mental models. If a contribution doesn't trace back to one, it doesn't belong here.
-
-Each one is backed by empirical evidence in `research/`. None of these is a hot take.
-
-### 1. Living ICP
-Your ICP drifts because your product drifts and because foundation models drift. A static ICP doc rots in 30 days. This repo treats ICP as a weekly-revised artifact with an evolution log. Six months of the log is more valuable than the current definition.
-
-**AI-native ICP has three dimensions traditional SaaS doesn't:** LLM Maturity Stage, Data Residency × Deployment Mode, and Model Spend Trajectory. See `context/icp-definition.md`.
-
-### 2. Technical Credibility Ladder
-AI buyers don't read "value pillars." They read benchmarks, code samples, integration depth, latency numbers, and your GitHub commit graph. Replace "messaging matrix" with a credibility ladder: each rung is a piece of proof a technical buyer can verify in 5 minutes.
-
-**Cursor scaled to $2B ARR with zero marketing spend** because the product itself was the proof. See `context/positioning.md`.
-
-### 3. Community → Customer Funnel
-Cold outbound to engineers underperforms. The funnel that works for AI-native: **GitHub star → Discord active → docs read → trial → paid → enterprise**. Every stage transition is measurable. Outbound exists, but only as the *last* step, not the first.
-
-**Anthropic's enterprise logos are 54% self-serve.** Bolt.new went from $0 to $40M ARR in 5 months without an outbound team. Lovable hit $100M ARR in 8 months via founder Twitter content alone.
-
-### 4. Capability Obsolescence Radar
-Your traditional competitor radar tracks Notion, Linear, Apollo. Your *real* competitor radar tracks GPT-5.5 → 6, Claude 4.7 → 5, Gemini 3.0 → 3.5, and whether the next release commoditizes your moat.
-
-**Jasper's ARR dropped from $90M projected to ~$55M after GPT-3.5.** Chegg lost 48% market cap in one day after disclosing ChatGPT impact. Character.AI sold to Google for $2.7B in a reverse acqui-hire. Capability obsolescence is a first-class concept here. See `context/competitor-radar.md`.
-
-### 5. Integration-Led Growth
-Marketing doesn't compound. Sales doesn't compound. **Integrations compound.** Every platform you ship into (Vercel, Cursor, Claude Code, Raycast, Slack, Linear) is a new growth curve.
-
-**v0 reached 4M users by riding Vercel's 6M-developer base** — every v0 generation has a one-click "Deploy to Vercel" button. The integration *is* the GTM.
-
-### 6. Agent-Native Distribution
-This is the 2026 entry. **Your product must be callable by another AI agent**, not just a human. New users will increasingly discover you through Claude / ChatGPT / Cursor agents that invoke your product on their behalf, not through Google.
-
-**Anthropic open-sourced MCP and donated it to the Linux Foundation.** Why? To own the protocol that all AI agents speak — 10,000+ public MCP servers shipped in H2 2025. If you don't have an MCP server, an Agent Skill, or an OpenAI Apps SDK integration in 2026, you're effectively invisible to the fastest-growing distribution channel in the industry. See `workflows/agent-native-distribution.md`.
-
----
-
-## Directory map
-
-```
-30x-ai-native-gtm-starter/
-├── CLAUDE.md                       ← you are here, 2-min lobby
-├── README.md                       ← public-facing intro
-├── context/                        ← institutional knowledge, grows weekly
-│   ├── profile.md                  ← who we are, what we ship, who we sell to
-│   ├── icp-definition.md           ← Living ICP + evolution log
-│   ├── signal-library.md           ← AI-native signals + decay + combos
-│   ├── positioning.md              ← Technical Credibility Ladder
-│   ├── competitor-radar.md         ← competitors + Capability Obsolescence
-│   └── personas/                   ← one file per buyer persona
-├── skills/                         ← repeatable actions (SKILL.md format)
-│   ├── setup/                      ← auto-fill from domain
-│   ├── technical-poc-brief/        ← account research, technical-buyer-shaped
-│   ├── signal-to-content/          ← signal → blog / tweet / launch post
-│   ├── signal-to-integration-pitch/← signal → integration partner outreach
-│   ├── icp-scoring/                ← score accounts on technical + commercial fit
-│   ├── weekly-drift-audit/         ← what changed this week, what's stale
-│   └── oss-pipeline-track/         ← GitHub star → customer funnel tracking
-├── workflows/                      ← decision trees for humans
-├── playbooks/                      ← emergency response scripts
-├── sync/                           ← live data connectors (MCP-first)
-├── outputs/                        ← every produced artifact, archived
-├── research/                       ← empirical evidence base (case studies, signal taxonomy, pricing teardowns)
-└── examples/sample-company/        ← a fully-filled fictional AI company
-```
+| Define who you are + who you sell to | [`strategy/`](./strategy) | [`strategy/positioning.md`](./strategy/positioning.md) |
+| Find + qualify + pursue prospects | [`pipeline/`](./pipeline) | [`pipeline/README.md`](./pipeline/README.md) |
+| Produce content + demand gen | [`content/`](./content) | [`content/README.md`](./content/README.md) |
+| Build decks, one-pagers, brand assets | [`assets/`](./assets) | [`assets/design.md`](./assets/design.md) |
+| Run repeatable Claude actions | [`skills/`](./skills) | each skill is self-describing |
+| Decide what to do when X happens | [`workflows/`](./workflows) | by scenario |
+| Respond to category-level crises | [`playbooks/`](./playbooks) | by event |
+| Connect external data into Claude | [`sync/`](./sync) | [`sync/README.md`](./sync/README.md) |
+| Where Claude saves work | [`outputs/`](./outputs) | date-prefixed files |
 
 ---
 
 ## How Claude should behave in this repo
 
-1. **Always read `context/` before answering GTM questions.** Don't ask the user to re-explain ICP or positioning. It's already in the repo.
-2. **Trace every recommendation to one of the six constitutions.** If you propose a tactic that doesn't fit, flag it. Cite `research/` evidence when relevant.
-3. **Write outputs to `outputs/` with date prefixes.** Every research brief, every sequence, every campaign, archived for future learning.
-4. **When unsure, default to the technical buyer.** AI-native buyers are engineers first. Lead with proof, not promise.
-5. **Don't invent context.** If `context/` is missing something you need, ask the user to fill it. Don't fabricate.
-
----
-
-## Current priorities
-
-Fill this section weekly. Two to four bullets. This is what Claude prioritizes when the user asks "what should we focus on?"
-
-- [ ] *Example:* Ship Vercel integration by end of June (Integration-Led Growth)
-- [ ] *Example:* Re-score top 50 accounts after v0.4 launch (Living ICP)
-- [ ] *Example:* Track GPT-5.5 release impact on our positioning (Capability Obsolescence Radar)
+1. **Always read `strategy/` before answering positioning, ICP, or competitor questions.** The user's truth lives there.
+2. **Read the relevant folder's README before producing a deliverable** — each folder explains the rules of its domain.
+3. **Write outputs to `outputs/YYYY-MM-DD-{slug}.md`.** Don't dump them into the user's chat — archive them.
+4. **Respect the brand voice in `strategy/brand.md`.** No marketing adjectives. No emoji unless the brand allows.
+5. **Cite sources for any factual claim** about market, competitor, or model release.
+6. **Don't invent context** — if a strategy file is empty, ask the user to fill it before producing work.
 
 ---
 
 ## Quickstart
 
 ```bash
-git clone <this-repo> my-gtm
+git clone https://github.com/30XCOMPANY/30x-ai-native-gtm-starter my-gtm
 cd my-gtm
+rm -rf examples/      # remove reference fills so Claude doesn't mix them in
 claude
-# then say: "run the setup skill on https://yourcompany.com"
 ```
 
-Claude reads `CLAUDE.md`, runs `skills/setup`, and populates `context/` from your public footprint. Refine over coffee. Ship outbound by lunch.
+Then say:
+```
+run the setup skill on https://yourcompany.com
+```
+
+`skills/setup/` auto-populates `strategy/` from your public footprint, then asks the five questions that decide everything else.
 
 ---
 
-## Acknowledgment
+## Look-before-you-fork
 
-Structurally inspired by [`gtm-starter-kit`](https://github.com/KarlRaf/gtm-starter-kit) by Maja Voje, Nico Druelle, and Karl Rafidimanana (April 2026). They built the scaffold for traditional B2B SaaS GTM in Claude Code. This repo rebuilds the philosophy for the AI-native case.
+- [`examples/helmsman/`](./examples/helmsman) — fictional AI eval-infra startup, every file filled. Read this in 20 minutes to understand the workflow end-to-end.
+- [`examples/our-flavor/`](./examples/our-flavor) — our own opinionated take on AI-native GTM (six constitutions, ten real death cases, twenty-two signal sources). Use as inspiration, not as gospel.
 
-## License
+---
+
+## What this repo is NOT
+
+- **Not a playbook.** It doesn't tell you what to believe about GTM. It gives you the shape to hold whatever you decide.
+- **Not a daily UI.** You won't sit in this repo all day. You'll open it when you need to do GTM work that Claude can help with.
+- **Not opinionated software.** The folders are functional, not philosophical. Our specific opinions live in `examples/our-flavor/`.
+
+---
+
+## License + acknowledgments
 
 MIT. Use, fork, ship. Attribution appreciated, not required.
+
+Structurally inspired by [`gtm-starter-kit`](https://github.com/KarlRaf/gtm-starter-kit) by Maja Voje, Nico Druelle, Karl Rafidimanana (April 2026). They built the pattern. This repo adapts the pattern for AI-native and adds the asset / content / sales-execution layers a real GTM org needs.
