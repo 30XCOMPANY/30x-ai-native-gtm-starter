@@ -161,12 +161,13 @@ body::before {
 .hero-bg .hb-pulse-b { animation: hb-pulse 5s ease-in-out infinite 1.2s; }
 .hero-bg .hb-pulse-c { animation: hb-pulse 4.5s ease-in-out infinite 2.4s; }
 .hero-bg .hb-glow {
-  position: absolute; left: 10%; right: 10%; top: 5%; bottom: 5%;
+  position: absolute; left: 5%; right: 5%; top: -10%; bottom: -10%;
   background:
-    radial-gradient(ellipse at 35% 40%, rgba(240,176,128,0.35), transparent 55%),
-    radial-gradient(ellipse at 65% 60%, rgba(200,228,243,0.40), transparent 55%);
+    radial-gradient(ellipse at 18% 30%, rgba(240,176,128,0.16), transparent 45%),
+    radial-gradient(ellipse at 82% 70%, rgba(200,228,243,0.18), transparent 45%);
   animation: hb-breathe 9s ease-in-out infinite;
-  filter: blur(48px);
+  filter: blur(60px);
+  mix-blend-mode: normal;
 }
 
 /* hero eyebrow pill */
