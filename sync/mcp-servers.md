@@ -40,7 +40,7 @@
 
 ### 4 · Notion MCP Server
 - **Provider**: Notion (official)
-- **Powers**: optional duplication of `context/` content to Notion for non-technical team members
+- **Powers**: optional duplication of `strategy/` content to Notion for non-technical team members
 - **Use case**: Maya's content team has Notion; Daniel's eng has the repo. MCP bridges.
 
 ### 5 · Sentry MCP Server
@@ -99,7 +99,7 @@
 If your product has an API, **ship an MCP server for it too**. Two purposes:
 
 1. Internal use — your team's Claude Code can invoke your product directly
-2. External distribution — Constitution #6, see `workflows/agent-native-distribution.md`
+2. External distribution — agent-native distribution, see `workflows/agent-native-distribution.md`
 
 Example for Helmsman (sample company):
 ```

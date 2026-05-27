@@ -2,7 +2,7 @@
 
 > How to go from "we should integrate with Vercel / Cursor / Anthropic" to "we shipped the integration and they promoted it." For humans.
 >
-> Constitution #5 (Integration-Led Growth). Operationalized by `skills/signal-to-integration-pitch`.
+> integration-led growth. Operationalized by `skills/signal-to-integration-pitch`.
 
 ---
 

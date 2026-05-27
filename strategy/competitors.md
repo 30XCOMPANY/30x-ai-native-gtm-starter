@@ -1,9 +1,8 @@
-# context/competitor-radar.md · Two-Layer Radar
+# strategy/competitors.md · Two-Layer Radar
 
 > Your traditional competitor radar tracks other companies. Your *real* competitor radar tracks foundation-model releases.
 >
-> **Constitution: [#4 Capability Obsolescence Radar](../CLAUDE.md#4-capability-obsolescence-radar).** Evidence base: [`research/01-capability-obsolescence-and-icp.md`](../research/01-capability-obsolescence-and-icp.md).
-
+> 
 ---
 
 ## Why this file has two halves
@@ -69,7 +68,7 @@ Standard battlecard structure. Each direct competitor gets a card.
 
 ## Section 2 · Capability Obsolescence Radar
 
-This is what Maja's traditional starter kit doesn't have. The five death patterns from `research/01...md` are your warning labels.
+This is what Maja's traditional starter kit doesn't have. The five death patterns from `examples/our-flavor/research/01-capability-obsolescence-and-icp.md` are your warning labels.
 
 ### 2.1 Foundation-model release tracker
 
@@ -133,7 +132,7 @@ Track which patterns *could* apply to you. Self-assessment, monthly review.
 
 ### 2.3 Early-warning signals (active monitoring)
 
-These trigger an emergency capability-obsolescence review when they fire. From `research/01...md` Section "Five capability-obsolescence early-warning signals":
+These trigger an emergency capability-obsolescence review when they fire. From `examples/our-flavor/research/01-capability-obsolescence-and-icp.md` Section "Five capability-obsolescence early-warning signals":
 
 - [ ] **Core feature runs natively in ChatGPT / Claude / Copilot default UI** — strongest signal
 - [ ] **OpenAI / Anthropic DevDay agenda includes your keyword** — 7-day warning
@@ -177,4 +176,4 @@ Log the review in `outputs/YYYY-MM-DD-radar-review.md`.
 
 ---
 
-> **[PROTOCOL]**: When a Section 2.3 signal fires, also update `context/positioning.md` Technical Credibility Ladder (which rungs just got commoditized?) and add a `context/icp-definition.md` evolution log entry. Capability obsolescence is rarely isolated.
+> **[PROTOCOL]**: When a Section 2.3 signal fires, also update `strategy/positioning.md` Technical Credibility Ladder (which rungs just got commoditized?) and add a `strategy/icp.md` evolution log entry. Capability obsolescence is rarely isolated.

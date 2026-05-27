@@ -1,4 +1,4 @@
-# context/profile.md · Company Profile
+# strategy/about.md · Company Profile
 
 > The minimum context Claude needs to talk about you. Filled out by `skills/setup/` from your public domain footprint, then refined by you.
 >
@@ -86,4 +86,4 @@ This section is important. AI-native companies often need to explicitly say what
 
 ---
 
-> **[PROTOCOL]**: This file changes rarely (monthly at most). When it does, also review `context/positioning.md` Rung 5 — your strategic origin story is often part of your obsolescence-resistance narrative.
+> **[PROTOCOL]**: This file changes rarely (monthly at most). When it does, also review `strategy/positioning.md` Rung 5 — your strategic origin story is often part of your obsolescence-resistance narrative.

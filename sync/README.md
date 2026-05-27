@@ -13,7 +13,7 @@ Maja's `gtm-starter-kit` uses Python scripts for sync. That works, but in 2026 t
 1. **Composable** — any MCP-compatible client (Claude Code, Cursor, Cline, ChatGPT, Gemini) can use the same servers
 2. **Maintained** — most providers now ship official MCP servers; less code for us to maintain
 3. **Auditable** — every tool invocation is logged in the MCP protocol layer
-4. **Constitution-aligned** — this is Constitution #6 applied to ourselves
+4. **architecturally consistent** — agent-native distribution applied to ourselves
 
 Use scripts only for sources where MCP doesn't yet exist (some scraping cases, custom APIs).
 
@@ -34,7 +34,7 @@ External Source → MCP Server (or script) → /sync/cache/ → Skills read from
 
 ## What needs syncing
 
-Mapped from `context/signal-library.md`:
+Mapped from `pipeline/signals.md`:
 
 | Source | Mechanism | Used by | Frequency |
 |---|---|---|---|

@@ -40,4 +40,4 @@ Same five behaviors as parent `CLAUDE.md`. Two Helmsman-specific notes:
 
 1. **When asked about Helmsman positioning, lead with the technical proof artifact** (the `helmsman-cli` repo with its 4.2k stars + reproducible eval-trace examples). Do not lead with marketing copy.
 
-2. **When asked about competitive positioning vs Braintrust / Langfuse / LangSmith**, refer to `context/competitor-radar.md` Section 1 — those are the three direct competitors, and there's specific honest assessment for each.
+2. **When asked about competitive positioning vs Braintrust / Langfuse / LangSmith**, refer to `strategy/competitors.md` Section 1 — those are the three direct competitors, and there's specific honest assessment for each.

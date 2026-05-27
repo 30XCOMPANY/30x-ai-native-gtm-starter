@@ -4,8 +4,8 @@
 
 ## Files stale (>14 days)
 
-- `context/personas/ai-platform-engineer.md` · last touched 2026-04-08 (26 days) · **suggested action**: review tooling section — Cursor / Claude Code split has shifted in last month
-- `context/signal-library.md` · last touched 2026-04-15 (19 days) · **suggested action**: signal performance audit due (last ran 2026-05-04 partial)
+- `strategy/personas.md` · last touched 2026-04-08 (26 days) · **suggested action**: review tooling section — Cursor / Claude Code split has shifted in last month
+- `pipeline/signals.md` · last touched 2026-04-15 (19 days) · **suggested action**: signal performance audit due (last ran 2026-05-04 partial)
 
 ## External events worth tracking (past 7 days)
 
@@ -13,17 +13,17 @@
 
 - **Claude 4.7 capability update 2026-04-28**: Anthropic published a 4.7-specific eval methodology note. The note explicitly recommends "external production monitoring" for customers who care about regression — implicit endorsement of our category.
   - **Impact on us**: positive. Quote this in next blog post.
-  - **Suggested repo update**: add note to `context/positioning.md` Rung 5 — Anthropic publicly recommends *external* production monitoring. Strengthens our obsolescence narrative.
+  - **Suggested repo update**: add note to `strategy/positioning.md` Rung 5 — Anthropic publicly recommends *external* production monitoring. Strengthens our obsolescence narrative.
 
 - **GPT-5.5 mini pricing change 2026-04-30**: OpenAI cut GPT-5.5 mini output cost by 25% (cached input now $0.18/1M). Many of our customers route OpenAI as fallback; price cut signals capacity push, possibly quality variance.
   - **Impact**: customers may shift more traffic to mini → potential quality regressions → outbound opportunity.
-  - **Suggested update**: add note to `context/signal-library.md` C3 weighting; this fires today.
+  - **Suggested update**: add note to `pipeline/signals.md` C3 weighting; this fires today.
 
 ### Competitor moves
 
 - **Braintrust shipped "Auto-Eval v2" 2026-04-30**: their auto-eval product now claims production-trace support. Direct overlap with our core wedge.
   - **Impact**: significant. Need response.
-  - **Suggested update**: update `context/competitor-radar.md` Section 1 Braintrust card — add "Recent product moves: Auto-Eval v2 with production-trace support (April 30)." Self-assess our differentiation. Draft response.
+  - **Suggested update**: update `strategy/competitors.md` Section 1 Braintrust card — add "Recent product moves: Auto-Eval v2 with production-trace support (April 30)." Self-assess our differentiation. Draft response.
   - **Recommended action**: emergency product call this week. Production-trace support is what kept us distinct.
 
 - **Langfuse 9.0 released 2026-04-29**: open-source observability got eval-lite features.
@@ -39,7 +39,7 @@
 ### Capability obsolescence signals fired this week
 
 - ⚠ **Signal: "Anthropic Skills directory eval category populated"** — early indicator that Anthropic considers eval to be a tier-1 Agent Skill category. If they ship native production-eval in Claude 5.0, this is a confirming signal.
-  - **Recommended action**: trigger `context/competitor-radar.md` Section 2.4 emergency playbook *partial* response — schedule a planning call to prepare for the scenario. Don't panic-act yet.
+  - **Recommended action**: trigger `strategy/competitors.md` Section 2.4 emergency playbook *partial* response — schedule a planning call to prepare for the scenario. Don't panic-act yet.
 
 ## Drafts ready for approval
 
@@ -83,7 +83,7 @@ Add to CLAUDE.md Current Priorities:
 
 ## Output trace
 
-- ICP context: `context/icp-definition.md` v2026-04-15 (still current, no drift)
-- Competitor radar: `context/competitor-radar.md` v2026-05-12 (yes — published 8 days ago but warranted given Braintrust move)
-- Signal library: `context/signal-library.md` v2026-04-15 (last refresh)
+- ICP context: `strategy/icp.md` v2026-04-15 (still current, no drift)
+- Competitor radar: `strategy/competitors.md` v2026-05-12 (yes — published 8 days ago but warranted given Braintrust move)
+- Signal library: `pipeline/signals.md` v2026-04-15 (last refresh)
 - Constitutions referenced: #1 (Living ICP), #4 (Capability Obsolescence Radar), #6 (Agent-Native Distribution)

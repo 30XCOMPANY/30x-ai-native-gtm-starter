@@ -2,7 +2,7 @@
 
 > For humans, not Claude. Decision tree for how an open-source user becomes a paying customer.
 >
-> Implements Constitution #3 (Community → Customer Funnel). Operationalized by skill `oss-pipeline-track`.
+> Implements the Community → Customer funnel. Operationalized by skill `oss-pipeline-track`.
 
 ---
 

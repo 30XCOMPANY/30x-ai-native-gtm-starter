@@ -22,7 +22,7 @@ Fork it. Fill in the templates. Let Claude Code drive the repeatable work.
 
 | What you do | Where it lives | First file to open |
 |---|---|---|
-| Define who you are + who you sell to | [`strategy/`](./strategy) | [`strategy/positioning.md`](./strategy/positioning.md) |
+| Define who you are + who you sell to | [`strategy/`](./strategy) | [`strategy/README.md`](./strategy/README.md) (fill order: about → positioning → icp) |
 | Find + qualify + pursue prospects | [`pipeline/`](./pipeline) | [`pipeline/README.md`](./pipeline/README.md) |
 | Produce content + demand gen | [`content/`](./content) | [`content/README.md`](./content/README.md) |
 | Build decks, one-pagers, brand assets | [`assets/`](./assets) | [`assets/design.md`](./assets/design.md) |

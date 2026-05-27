@@ -1,9 +1,8 @@
-# context/icp-definition.md · Living ICP
+# strategy/icp.md · Living ICP
 
 > Your ICP for AI-native GTM. This is not a slide in a deck — it's a weekly-revised artifact with an evolution log.
 >
-> **Constitution: [#1 Living ICP](../CLAUDE.md#1-living-icp).** Evidence base: [`research/01-capability-obsolescence-and-icp.md`](../research/01-capability-obsolescence-and-icp.md).
-
+> 
 ---
 
 ## Why this file looks different from your last ICP doc
@@ -23,7 +22,7 @@ AI-native ICP slices on three different axes — they go *first* in this file. T
 
 ### 1.1 LLM Maturity Stage
 
-Pick exactly one (or one range) that defines your ICP. Evidence: cited in `research/01...md` (Cursor, Glean, LangSmith, Humanloop all segment on this implicitly).
+Pick exactly one (or one range) that defines your ICP. Evidence: cited in `examples/our-flavor/research/01-capability-obsolescence-and-icp.md` (Cursor, Glean, LangSmith, Humanloop all segment on this implicitly).
 
 - [ ] **Stage 0 — No LLM API yet.** Has heard of ChatGPT, hasn't built anything.
 - [ ] **Stage 1 — ChatGPT Plus / Team internally.** Free or low-tier consumer accounts. Not API.

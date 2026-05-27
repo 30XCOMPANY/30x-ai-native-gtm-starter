@@ -1,4 +1,4 @@
-# context/personas/[name].md · Persona Template
+# strategy/personas/[name].md · Persona Template
 
 > One file per buyer persona. Copy this template, fill in, save as e.g. `ai-infra-engineer.md`, `head-of-ai-product.md`, `cto-stage-3-icp.md`.
 >
@@ -122,4 +122,4 @@ What gets you blocked / unsubscribed instantly:
 
 ---
 
-> **[PROTOCOL]**: When this persona's tools-they-live-in changes (e.g., they all switched from Cursor to Claude Code), also update `context/signal-library.md` — the signals you need to track might shift, and `skills/signal-to-content/` outbound templates need rewriting.
+> **[PROTOCOL]**: When this persona's tools-they-live-in changes (e.g., they all switched from Cursor to Claude Code), also update `pipeline/signals.md` — the signals you need to track might shift, and `skills/signal-to-content/` outbound templates need rewriting.

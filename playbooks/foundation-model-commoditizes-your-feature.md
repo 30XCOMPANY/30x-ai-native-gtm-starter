@@ -2,9 +2,9 @@
 
 > Emergency response when OpenAI / Anthropic / Google ships a capability that absorbs your core wedge.
 >
-> This is the hardest scenario in `context/competitor-radar.md` Section 2 — capability obsolescence, real-time edition.
+> This is the hardest scenario in `strategy/competitors.md` Section 2 — capability obsolescence, real-time edition.
 >
-> Reference cases: see `research/01-capability-obsolescence-and-icp.md`. Especially Jasper, Inflection, PDF chat wave.
+> Reference cases: see `examples/our-flavor/research/01-capability-obsolescence-and-icp.md`. Especially Jasper, Inflection, PDF chat wave.
 
 ---
 
@@ -48,7 +48,7 @@ Audit each customer:
 
 ### Triage question 3 · Which death pattern fits?
 
-From `context/competitor-radar.md` Section 2.2:
+From `strategy/competitors.md` Section 2.2:
 
 1. Wrapper eaten by foundation model → consider pivot up-stack or vertical
 2. Foundation model burn-rate (you train your own) → existential; sell or stop training
@@ -153,4 +153,4 @@ If the bet isn't working at 6 months, re-triage. **Don't sunk-cost a failed pivo
 - **Stability AI (No bet)** — burn rate caught up before management replaced. Lesson: silence is the worst response.
 - **Cline (Bet 2: Fight)** — chose moral narrative as moat. Survived because the moat was real, not vapor.
 
-See `research/01-capability-obsolescence-and-icp.md` for sources.
+See `examples/our-flavor/research/01-capability-obsolescence-and-icp.md` for sources.

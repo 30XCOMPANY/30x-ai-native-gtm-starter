@@ -7,7 +7,7 @@ description: Score one account or a batch against the Living ICP. Uses both AI-n
 
 ## What this does
 
-Given a list of accounts (domains), produces a tier-ranked output with disqualifier flags and per-account first-action. Different from traditional ICP scoring because the gates are AI-native (Maturity Stage, Data Residency, Spend Trajectory) — see `context/icp-definition.md` Section 6.
+Given a list of accounts (domains), produces a tier-ranked output with disqualifier flags and per-account first-action. Different from traditional ICP scoring because the gates are AI-native (Maturity Stage, Data Residency, Spend Trajectory) — see `strategy/icp.md` Section 6.
 
 ## How to invoke
 
@@ -23,7 +23,7 @@ score the accounts in [outputs/file.md]
 
 ## Steps Claude takes
 
-1. **Read** `context/icp-definition.md` Sections 1, 2, 3, 6 (qualifier framework + anti-ICP).
+1. **Read** `strategy/icp.md` Sections 1, 2, 3, 6 (qualifier framework + anti-ICP).
 
 2. **For each account**, run gates in this order:
 
@@ -43,7 +43,7 @@ score the accounts in [outputs/file.md]
    - Model spend trajectory growing 30%+: +3
    - Already uses a competitor we displace well: +2
    - Already uses a complementary tool we integrate with: +1
-   - Has shipped public MCP server / Agent Skill (Constitution #6): +2
+   - Has shipped public MCP server / Agent Skill (agent-callable surface): +2
    - Founder publicly active on AI-native topics: +1
 
 3. **Assign tier**:
@@ -91,8 +91,7 @@ score the accounts in [outputs/file.md]
 - Don't score on company size alone. Traditional axis; weak in AI-native.
 - Don't over-trust soft qualifiers. Hard qualifiers and disqualifiers are the gates; soft scoring is just ordering.
 - Don't reject T2 / T3 — they're future T1s. Re-score quarterly.
-- Don't run scoring without first ensuring `context/icp-definition.md` was updated within the last 30 days. Stale ICP → useless scoring.
+- Don't run scoring without first ensuring `strategy/icp.md` was updated within the last 30 days. Stale ICP → useless scoring.
 
-## Trace to constitution
-
-Constitution #1 (Living ICP). This skill is how the ICP file becomes operational — the file alone is just a doc; the file × this skill = a working filter on the entire pipeline.
+## Where this fits
+ICP maintenance. This skill is how the ICP file becomes operational — the file alone is just a doc; the file × this skill = a working filter on the entire pipeline.

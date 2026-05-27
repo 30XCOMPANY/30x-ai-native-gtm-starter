@@ -101,7 +101,7 @@ DM from Maya (founder-to-founder is appropriate here since they're peer-stage):
 
 ## Output trace
 
-- ICP score input: `context/icp-definition.md` v2026-04-15
-- Positioning input: `context/positioning.md` v2026-05-12 (current)
+- ICP score input: `strategy/icp.md` v2026-04-15
+- Positioning input: `strategy/positioning.md` v2026-05-12 (current)
 - Signal triggered: A1 + B6 combination (their `eval-harness` repo at 1.4k stars + planning MCP server per their roadmap)
 - Estimated probability of closing within 6 months: 35-45% (above average for our pipeline)

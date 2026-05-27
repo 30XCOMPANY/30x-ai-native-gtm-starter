@@ -1,9 +1,8 @@
-# context/positioning.md · Technical Credibility Ladder
+# strategy/positioning.md · Technical Credibility Ladder
 
 > Replaces traditional "value pillars" and "messaging matrix." AI buyers don't read marketing copy — they read benchmarks, code, and commit graphs. This file defines the proof rungs your customer climbs before buying.
 >
-> **Constitution: [#2 Technical Credibility Ladder](../CLAUDE.md#2-technical-credibility-ladder).** Evidence base: [`research/02-gtm-motions-by-company.md`](../research/02-gtm-motions-by-company.md) Cursor / Cline / Modal cases.
-
+> 
 ---
 
 ## Why this file is structured as a ladder
@@ -69,7 +68,7 @@ What the buyer evaluates over the first hour.
 **Proof artifacts**:
 - **SDKs for their stack** (Python + TypeScript at minimum; Go / Rust for infra; Swift / Kotlin for mobile).
 - **Pre-built integrations**: which tools you already integrate with (LangChain, Vercel AI SDK, Cursor, Claude Code, n8n, Zapier).
-- **MCP server** so your tool is callable from any AI agent (this is Constitution #6 — see `CLAUDE.md`).
+- **MCP server** so your tool is callable from any AI agent (this is agent-native distribution — see `CLAUDE.md`).
 - **Deployment options** that match their Data Residency posture (see `icp-definition.md` Section 1.2).
 - **API parity with OpenAI / Anthropic SDK shape** (where applicable) — buyer doesn't have to learn new SDK semantics.
 - **Latency / throughput numbers under realistic load**.
@@ -145,7 +144,7 @@ These phrases trigger immediate downgrades in AI-native technical buyers:
 - 1 "Try it" CTA (live playground) AND 1 "View docs" CTA.
 - NOT "Book a demo" as primary CTA at this stage.
 
-**Twitter / X founder post template** (the Lovable / Bolt pattern from `research/02...md`):
+**Twitter / X founder post template** (the Lovable / Bolt pattern from `examples/our-flavor/research/02-gtm-motions-by-company.md`):
 - Specific number + specific time period
 - "We just shipped X" / "we hit Y" / "we're now at Z"
 - Optional: short demo video

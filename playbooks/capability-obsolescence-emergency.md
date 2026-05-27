@@ -1,6 +1,6 @@
 # Playbook · Capability Obsolescence Emergency
 
-> When `context/competitor-radar.md` Section 2.3 early-warning signal fires — and confirms — this playbook governs the response in the first 30 days.
+> When `strategy/competitors.md` Section 2.3 early-warning signal fires — and confirms — this playbook governs the response in the first 30 days.
 >
 > Different from `foundation-model-commoditizes-your-feature.md`: that's for when it's already happened. This is for the *preemptive* response when you see it coming.
 
@@ -72,7 +72,7 @@ By Day 7, founders make a call on **prepared response posture**:
 
 ### Sharpen positioning (if chosen)
 
-- Update `context/positioning.md` Rung 5 — capability obsolescence resistance gets explicit
+- Update `strategy/positioning.md` Rung 5 — capability obsolescence resistance gets explicit
 - Update landing page hero — leading with what's unique
 - Sales script update — reps prepared to handle "but won't [foundation model] do this for free?" before it does
 

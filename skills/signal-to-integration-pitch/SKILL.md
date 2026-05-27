@@ -1,13 +1,13 @@
 ---
 name: signal-to-integration-pitch
-description: Turn a fired signal into an integration-partnership pitch. For platform companies (Vercel, Cursor, Claude, Cloudflare, Linear, Slack, Notion) — pitch them to ship your tool inside their distribution. Constitution #5 + #6 implementation.
+description: Turn a fired signal into an integration-partnership pitch. For platform companies (Vercel, Cursor, Claude, Cloudflare, Linear, Slack, Notion) — pitch them to ship your tool inside their distribution. implementation of integration-led growth + agent-native distribution.
 ---
 
 # Skill · signal-to-integration-pitch
 
 ## What this does
 
-Integration is the growth lever that compounds (Constitution #5). Agent-Native Distribution is the 2026 must-do (Constitution #6). This skill builds the pitch artifact that gets you on a platform's integration shortlist.
+Integration is the growth lever that compounds. Agent-native distribution is the 2026 must-do. This skill builds the pitch artifact that gets you on a platform's integration shortlist.
 
 Different from `signal-to-content` (which is broadcast); this is direct, asymmetric, B2B partnership outreach.
 
@@ -24,7 +24,7 @@ Examples:
 
 ## Steps Claude takes
 
-1. **Read** `context/profile.md`, `context/positioning.md` Rung 3 (Integration Depth proof points).
+1. **Read** `strategy/about.md`, `strategy/positioning.md` Rung 3 (Integration Depth proof points).
 
 2. **Profile the platform**:
    - What's their **current integration model**? (App marketplace? MCP servers? Built-in connectors? SDK ecosystem?)
@@ -103,6 +103,5 @@ Subject: [Specific signal observation] + integration proposal
 - Don't compare yourself to other partners in your pitch. Don't even mention them.
 - Don't send the proposal as a PDF attachment. Public URL. Always.
 
-## Trace to constitution
-
-Constitutions #5 (Integration-Led Growth) and #6 (Agent-Native Distribution). Every integration is a new growth curve; every agent-callable surface is a new discovery channel.
+## Where this fits
+integration-led growth and agent-native distribution. Every integration is a new growth curve; every agent-callable surface is a new discovery channel.

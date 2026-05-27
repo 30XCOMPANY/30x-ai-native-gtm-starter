@@ -4,6 +4,23 @@
 
 ---
 
+## ⚠ Read this first — does the 7-stage funnel even apply to you?
+
+The classic sales funnel below is built for **sales-assisted GTM motions**. For AI-native companies, that's:
+
+- **Enterprise tier** deals (typically $50K+ ACV) — yes, use this playbook
+- **Sales-led AI products** (Harvey, Glean, Adept-shape) — yes
+- **Mid-market with required SE / compliance review** — yes
+
+**For pure PLG AI products** (Cursor, Lovable, Bolt, Replit's self-serve tier, Cline):
+- Stages 1–3 collapse into "user discovers product on X / GitHub / HN, signs up, swipes credit card"
+- Stages 4–6 don't exist for most deals
+- This playbook applies **only to the Enterprise lane**, which is usually <20% of revenue but 60% of operator attention
+
+If your default motion is PLG, skip to [`workflows/oss-funnel.md`](../workflows/oss-funnel.md) for the more accurate flow, and use this playbook only for Enterprise lane.
+
+---
+
 ## Stages
 
 | # | Stage | Definition | Exit criteria | Conversion target |

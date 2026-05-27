@@ -19,7 +19,7 @@ Run weekly or after major events (release, viral moment, conference).
 
 ## Steps Claude takes
 
-1. **Define your funnel stages** (read from `context/profile.md` or first-run config):
+1. **Define your funnel stages** (read from `strategy/about.md` or first-run config):
    - **Aware**: GitHub stargazer
    - **Active**: Discord member with messages in last 30 days OR cloned repo (via traffic API)
    - **Engaged**: contributed issue / PR / discussion comment
@@ -96,6 +96,5 @@ Run weekly or after major events (release, viral moment, conference).
 - Don't ignore the "Aware → Active" stage as just vanity. A consistent star-but-not-Discord ratio means your community surface is wrong.
 - Don't conflate trial signups from organic OSS with trial signups from paid acquisition. They convert differently; track separately.
 
-## Trace to constitution
-
-Constitution #3 (Community → Customer Funnel) — measurable, named, with explicit stage-to-stage conversion targets.
+## Where this fits
+the Community → Customer funnel — measurable, named, with explicit stage-to-stage conversion targets.

@@ -1,8 +1,8 @@
 # Workflow · Agent-Native Distribution
 
-> Implements Constitution #6 (Agent-Native Distribution). For humans — decision tree for shipping into Claude / ChatGPT / Cursor / Gemini agent ecosystems.
+> Implements agent-native distribution. For humans — decision tree for shipping into Claude / ChatGPT / Cursor / Gemini agent ecosystems.
 >
-> Evidence: see `research/02-gtm-motions-by-company.md` Insight 3.
+> Evidence: see `examples/our-flavor/research/02-gtm-motions-by-company.md` Insight 3.
 
 ---
 

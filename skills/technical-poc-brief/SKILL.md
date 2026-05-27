@@ -19,7 +19,7 @@ run technical-poc-brief on https://prospect.com
 
 ## Steps Claude takes
 
-1. **Read** `context/profile.md`, `context/icp-definition.md`, `context/positioning.md` for our identity.
+1. **Read** `strategy/about.md`, `strategy/icp.md`, `strategy/positioning.md` for our identity.
 2. **Profile the prospect across 6 axes**:
 
    - **Stack inference**:
@@ -112,6 +112,5 @@ Their entry rung is [N] because [reason]. To advance them, demonstrate:
 - Don't lead the brief with "Here's why they need our product." Start with **what they look like**, not **why they should buy**.
 - Don't include personal social media of non-public-facing engineers.
 
-## Trace to constitution
-
-Maps directly to Constitution #2 (Technical Credibility Ladder) — the brief tells the seller *which rung* the buyer is on and *what proof* moves them to the next.
+## Where this fits
+Maps directly to positioning rungs — the brief tells the seller *which rung* the buyer is on and *what proof* moves them to the next.

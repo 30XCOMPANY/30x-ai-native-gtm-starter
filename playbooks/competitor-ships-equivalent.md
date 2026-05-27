@@ -33,7 +33,7 @@
 - Read the 3-bullet assessment
 - Decide: which of Y/Z/W becomes our new positioning lead?
 - Schedule the public response (don't post on impulse)
-- Update `context/competitor-radar.md` Section 1 card immediately
+- Update `strategy/competitors.md` Section 1 card immediately
 
 **Don't**:
 - Panic-DM the team to "kill it" — generates noise without action
@@ -83,7 +83,7 @@ Highest-confidence move if you have something genuinely shipping that they can't
 Based on the 3-bullet assessment, choose:
 
 ### Move 1 · Sharpen positioning
-Update `context/positioning.md` to lead with the specific axis where you still win. Update landing page hero within 30 days.
+Update `strategy/positioning.md` to lead with the specific axis where you still win. Update landing page hero within 30 days.
 
 ### Move 2 · Ship the differentiator faster
 If your roadmap has a feature that widens the gap, prioritize it. The launch is your reminder to ship.
@@ -98,9 +98,9 @@ Sometimes the right answer is to integrate with them. Counterintuitive but real 
 
 ## What to update afterward
 
-- `context/competitor-radar.md` Section 1 card (the competitor's "Recent product moves")
-- `context/positioning.md` if your lead positioning shifts
-- `context/icp-definition.md` if your ICP gets sharper as a result
+- `strategy/competitors.md` Section 1 card (the competitor's "Recent product moves")
+- `strategy/positioning.md` if your lead positioning shifts
+- `strategy/icp.md` if your ICP gets sharper as a result
 - `outputs/YYYY-MM-DD-competitor-response.md` — log what you did and why; future-you needs the reasoning
 
 ---
@@ -119,7 +119,7 @@ What we did:
 - **Hour 1**: Daniel tested Auto-Eval v2 on a representative trace. Found: dev-time only; doesn't catch the multi-tenant production cases we handle.
 - **Hour 4**: 3-bullet internal note: "They shipped dev-time auto-eval. We still win on multi-tenant production reliability + cross-model drift + remediation workflow."
 - **Hour 24**: Maya tweeted Format A response acknowledging Braintrust's work, reframing around production reliability.
-- **Day 1**: Updated `context/competitor-radar.md` Braintrust card with detailed Recent Product Moves section.
+- **Day 1**: Updated `strategy/competitors.md` Braintrust card with detailed Recent Product Moves section.
 - **Day 3**: Published comparison blog: "When to use Braintrust vs Helmsman" — honest, customer-utility-focused.
 - **Day 7**: Updated positioning.md to lead with "production reliability" as the headline; dev-time eval becomes a feature, not the headline.
 - **Day 14**: Shipped multi-tenant baseline feature publicly — widens the gap.

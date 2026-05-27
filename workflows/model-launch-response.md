@@ -2,7 +2,7 @@
 
 > When Anthropic / OpenAI / Google ship a major model, you have a 72-hour exploitation window. This workflow makes the window productive.
 >
-> Constitution #4 (Capability Obsolescence Radar) operational counterpart.
+> `strategy/capability-radar.md` operational counterpart.
 
 ---
 
@@ -76,7 +76,7 @@ Different playbook. Goes from offensive to defensive.
 - Pause outbound that leans on the now-commoditized wedge. Stop selling something that's about to be free.
 
 ### Day 1
-- Founder call. Read `context/competitor-radar.md` Section 2.4 Emergency Response Playbook.
+- Founder call. Read `strategy/competitors.md` Section 2.4 Emergency Response Playbook.
 - Decision: pivot, fight, or sell? Set a 30-day deadline to commit.
 
 ### Day 7

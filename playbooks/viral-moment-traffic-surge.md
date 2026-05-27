@@ -135,4 +135,4 @@ Don't do this *during* a surge. Do it now so a surge can't break you.
 - **Bolt.new viral demos** (2024-2025): user-generated screen-recordings on X compounded. Bolt did *nothing* original — they made every demo trivially shareable, and the network multiplied.
 - **Lovable founder posts**: each ARR milestone tweet acts as a mini-viral moment; the consistent format compounds reach.
 
-See `research/02-gtm-motions-by-company.md` for source URLs.
+See `examples/our-flavor/research/02-gtm-motions-by-company.md` for source URLs.

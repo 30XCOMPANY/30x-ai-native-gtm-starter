@@ -1,9 +1,8 @@
-# context/signal-library.md · AI-Native Signal Library
+# pipeline/signals.md · AI-Native Signal Library
 
 > Signals tell you *which* accounts are entering the buying window. AI-native signals are different from traditional SaaS signals — funding announcements and hiring posts are weak; code commits, model release reactions, and inference-spend trajectory are strong.
 >
-> **Constitutions: [#1 Living ICP](../CLAUDE.md#1-living-icp), [#3 Community → Customer Funnel](../CLAUDE.md#3-community-customer-funnel).** Evidence base: [`research/03-signals-and-pricing.md`](../research/03-signals-and-pricing.md) Part 1.
-
+> 
 ---
 
 ## Why this file looks different from a traditional signal library

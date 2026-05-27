@@ -1,13 +1,13 @@
 ---
 name: signal-to-content
-description: Convert a fired signal (from `context/signal-library.md`) into shippable content — blog post, X thread, launch post, or short video script. Designed for the Lovable / Bolt / Cursor pattern where founder-led content IS the distribution channel.
+description: Convert a fired signal (from `pipeline/signals.md`) into shippable content — blog post, X thread, launch post, or short video script. Designed for the Lovable / Bolt / Cursor pattern where founder-led content IS the distribution channel.
 ---
 
 # Skill · signal-to-content
 
 ## What this does
 
-The Lovable + Bolt model from `research/02-gtm-motions-by-company.md`: founder tweets ARR milestones, Bolt users post screen-recordings, Cursor publishes its product feedback as content. Each fired signal becomes one piece of content within 24 hours.
+The Lovable + Bolt model from `examples/our-flavor/research/02-gtm-motions-by-company.md`: founder tweets ARR milestones, Bolt users post screen-recordings, Cursor publishes its product feedback as content. Each fired signal becomes one piece of content within 24 hours.
 
 This skill turns a signal trigger into ready-to-ship copy.
 
@@ -24,7 +24,7 @@ Examples:
 
 ## Steps Claude takes
 
-1. **Read** `context/profile.md` (voice), `context/positioning.md` (rung proof points), `context/personas/*.md` (audience).
+1. **Read** `strategy/about.md` (voice), `strategy/positioning.md` (rung proof points), `strategy/personas/*.md` (audience).
 
 2. **Identify the signal type**:
    - **Outward-facing signal** (something happened to us): ARR milestone, GitHub star milestone, customer ship, KOL endorsement → output is *announcement content*.
@@ -68,6 +68,5 @@ Examples:
 - Don't auto-DM responders. The signal-to-content engine creates inbound — let the inbound come, then warm-DM only on direct engagement.
 - Don't post during US business hours unless the signal is time-locked (e.g., reaction to a 9am PT model release). Post when devs are at keyboards: early morning PT, evening Asia hours.
 
-## Trace to constitution
-
-Constitution #3 (Community → Customer Funnel) — content IS the top-of-funnel for AI-native. This skill makes the funnel mechanical instead of artisanal.
+## Where this fits
+the Community → Customer funnel — content IS the top-of-funnel for AI-native. This skill makes the funnel mechanical instead of artisanal.

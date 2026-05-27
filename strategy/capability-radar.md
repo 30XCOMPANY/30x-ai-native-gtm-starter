@@ -28,7 +28,7 @@ For each, mark exposure (Low / Med / High):
 | Information intermediary replaced | LLM answers directly | _L / M / H_ |
 | OS / platform integration absorbs you | Apple Intelligence / Copilot+ | _L / M / H_ |
 
-Reference cases: see [`examples/our-flavor/research/01-capability-obsolescence-and-icp.md`](../examples/our-flavor/research/01-capability-obsolescence-and-icp.md).
+Reference cases: see [`examples/our-flavor/examples/our-flavor/research/01-capability-obsolescence-and-icp.md`](../examples/our-flavor/examples/our-flavor/research/01-capability-obsolescence-and-icp.md).
 
 ---
 

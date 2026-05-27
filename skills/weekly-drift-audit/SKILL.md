@@ -1,13 +1,13 @@
 ---
 name: weekly-drift-audit
-description: Run weekly. Detects which context/ files are stale, which foundation-model events happened, which competitor moves matter, and drafts updates for human approval. Implements Living ICP's weekly cadence.
+description: Run weekly. Detects which strategy/ files are stale, which foundation-model events happened, which competitor moves matter, and drafts updates for human approval. Implements Living ICP's weekly cadence.
 ---
 
 # Skill · weekly-drift-audit
 
 ## What this does
 
-Without active maintenance, every `context/` file rots in 30 days. This skill audits the repo weekly, identifies what changed externally that should update the repo internally, and drafts the update for the user to approve.
+Without active maintenance, every `strategy/` file rots in 30 days. This skill audits the repo weekly, identifies what changed externally that should update the repo internally, and drafts the update for the user to approve.
 
 ## How to invoke
 
@@ -20,7 +20,7 @@ Run every Monday morning ideally; takes 5 minutes of user time.
 ## Steps Claude takes
 
 1. **Check repo age**:
-   - For each `context/*.md` file, when was it last edited (git log if available, else file mtime)?
+   - For each `strategy/*.md` file, when was it last edited (git log if available, else file mtime)?
    - Flag any file > 14 days stale.
 
 2. **Scan external events from last 7 days**:
@@ -31,7 +31,7 @@ Run every Monday morning ideally; takes 5 minutes of user time.
    - Any new benchmark in relevant vertical?
    - Any DevDay-class announcement?
 
-   **Competitor events** (from `context/competitor-radar.md` list):
+   **Competitor events** (from `strategy/competitors.md` list):
    - Funding announcements
    - Product launches
    - Pricing changes
@@ -104,9 +104,8 @@ Run every Monday morning ideally; takes 5 minutes of user time.
 
 - Don't auto-apply drafts. Living ICP requires human in the loop; that's the point.
 - Don't flag every change. Distinguish "this might matter" from "this needs action now."
-- Don't run if `context/icp-definition.md` was edited yesterday — wait at least 5 days between drift audits or you'll create churn.
+- Don't run if `strategy/icp.md` was edited yesterday — wait at least 5 days between drift audits or you'll create churn.
 - Don't include events outside your stated competitor / ICP scope just because they're trending. Focus.
 
-## Trace to constitution
-
-Constitutions #1 (Living ICP), #4 (Capability Obsolescence Radar). This skill is the operational implementation of "ICP refreshes weekly; obsolescence radar reviewed weekly."
+## Where this fits
+ICP maintenance, #4 (Capability Obsolescence Radar). This skill is the operational implementation of "ICP refreshes weekly; obsolescence radar reviewed weekly."
