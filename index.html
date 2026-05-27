@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30x AI-Native GTM Starter</title>
+<meta name="description" content="GTM starter for AI-native companies. Six constitutions + 22 signal sources + 10 real death cases.">
+<meta property="og:title" content="30x AI-Native GTM Starter">
+<meta property="og:description" content="Six Constitutions. Twenty-two signal sources. Ten real AI-startup death cases. Open source.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://30xcompany.github.io/30x-ai-native-gtm-starter/">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --paper: #FFFFFB;
+  --washed: #FBF8F1;
+  --ink: #14141a;
+  --ink-soft: #5a5a64;
+  --muted: #888892;
+  --sky: #B4E1F6;
+  --orange: #F4B083;
+  --orange-dark: #d8682a;
+  --purple: #c9bce8;
+  --green: #b6d9b6;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 30px;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: var(--paper); color: var(--ink); font: 400 16px/1.5 var(--font-sans); letter-spacing: -0.005em; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; height: auto; }
+a { color: inherit; text-decoration: none; }
+a.link { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a.link:hover { text-decoration-thickness: 2px; }
+code, pre { font-family: var(--font-mono); }
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 500; letter-spacing: -0.025em; margin: 0; line-height: 1.05; }
+h1 { font-size: clamp(40px, 7vw, 76px); }
+h2 { font-size: clamp(28px, 4vw, 44px); }
+h3 { font-size: clamp(18px, 2vw, 22px); }
+p { margin: 0; }
+
+.page { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 768px) { .page { padding: 0 40px; } }
+
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; gap: 24px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+.nav-brand .logo-mark { width: 28px; height: 28px; border: 1.5px solid var(--ink); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
+.nav-links { display: none; gap: 28px; font-size: 14px; }
+@media (min-width: 900px) { .nav-links { display: flex; } }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-cta { display: flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 500; transition: opacity 0.15s; }
+.nav-cta:hover { opacity: 0.85; }
+
+.hero { padding: 60px 0 80px; text-align: center; }
+.hero h1 { max-width: 14ch; margin: 0 auto 28px; }
+.hero h1 .strike { position: relative; display: inline-block; }
+.hero h1 .strike::after { content: ""; position: absolute; left: -2%; right: -2%; top: 52%; border-top: 4px solid var(--orange-dark); transform: rotate(-2deg); }
+.hero .sub { max-width: 56ch; margin: 0 auto 36px; font-size: clamp(15px, 1.6vw, 18px); color: var(--ink-soft); line-height: 1.5; }
+.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: 14px; font-weight: 500; letter-spacing: -0.01em; transition: opacity 0.15s, transform 0.1s; cursor: pointer; }
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: translateY(1px); }
+.btn--primary { background: var(--ink); color: var(--paper); }
+.btn--ghost { background: var(--paper); color: var(--ink); }
+
+.logo-strip { margin: 16px 0 80px; text-align: center; }
+.logo-strip .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.logo-strip .logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 44px; align-items: center; font-weight: 500; color: var(--ink-soft); font-size: 17px; letter-spacing: -0.02em; }
+.logo-strip .logos span { opacity: 0.7; }
+
+.panel { border: 1.5px solid var(--ink); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 32px; background: var(--paper); }
+.panel--sky { background: var(--sky); }
+.panel--orange { background: var(--orange); }
+.panel--purple { background: var(--purple); }
+.panel--ink { background: var(--ink); color: var(--paper); }
+.panel--ink h2, .panel--ink h3 { color: var(--paper); }
+.panel-inner { padding: 36px 28px; }
+@media (min-width: 768px) { .panel-inner { padding: 56px 64px; } }
+.panel-eyebrow { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--ink); border-radius: 999px; margin-bottom: 24px; }
+.panel--ink .panel-eyebrow { border-color: var(--paper); }
+.panel-head { margin-bottom: 36px; }
+.panel-head h2 { max-width: 18ch; margin-bottom: 14px; }
+.panel-head .desc { max-width: 60ch; color: var(--ink-soft); font-size: 16px; line-height: 1.55; }
+.panel--ink .panel-head .desc { color: rgba(244,241,232,0.7); }
+.panel--sky .panel-head .desc, .panel--purple .panel-head .desc, .panel--orange .panel-head .desc { color: rgba(20,20,26,0.7); }
+
+.consts { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .consts { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .consts { grid-template-columns: 1fr 1fr 1fr; } }
+.const { background: var(--paper); border: 1.5px solid var(--ink); border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; min-height: 200px; }
+.const__num { font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink-soft); margin-bottom: 14px; }
+.const__title { font-size: 19px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.15; }
+.const__body { font-size: 14px; color: var(--ink-soft); line-height: 1.5; flex: 1; }
+.const__tag { margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange-dark); }
+
+.illus-block { display: grid; gap: 32px; align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .illus-block { grid-template-columns: 1.1fr 1fr; gap: 56px; } .illus-block.illus-right { grid-template-columns: 1fr 1.1fr; } }
+.illus-block .illus-img { border-radius: var(--radius-lg); background: var(--washed); overflow: hidden; border: 1px solid rgba(20,20,26,0.08); }
+.illus-block .feature-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.illus-block .feature-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.5; }
+.illus-block .feature-list .dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 9px; }
+
+.death-cases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 36px; }
+@media (min-width: 768px) { .death-cases { grid-template-columns: repeat(5, 1fr); } }
+.case { background: var(--paper); border: 1px solid var(--ink); border-radius: var(--radius); padding: 14px; font-size: 13px; }
+.case__name { font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+.case__trigger { color: var(--ink-soft); font-size: 12px; line-height: 1.4; }
+
+.cta-panel .cta-content { display: grid; gap: 32px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .cta-panel .cta-content { grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; } }
+.code-block { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 20px; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; overflow-x: auto; white-space: pre; }
+.code-block .prompt { color: rgba(180,225,246,0.9); user-select: none; }
+.code-block .comment { color: rgba(244,241,232,0.5); }
+
+.library-grid { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 32px; }
+@media (min-width: 800px) { .library-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.lib-card { border: 1.5px solid var(--ink); border-radius: var(--radius-lg); padding: 24px; background: var(--paper); display: flex; flex-direction: column; min-height: 220px; transition: transform 0.15s, background 0.15s; }
+.lib-card:hover { transform: translateY(-2px); background: var(--washed); }
+.lib-card .lib-tag { font-family: var(--font-mono); font-size: 11px; color: var(--orange-dark); margin-bottom: 12px; }
+.lib-card h3 { font-size: 18px; font-weight: 500; line-height: 1.25; margin-bottom: 12px; }
+.lib-card p { font-size: 14px; color: var(--ink-soft); line-height: 1.5; flex: 1; }
+.lib-card .lib-link { margin-top: 16px; font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+.lib-card:hover .lib-link { text-decoration: underline; text-underline-offset: 3px; }
+
+footer { margin-top: 80px; padding: 40px 0 60px; border-top: 1px solid rgba(20,20,26,0.1); font-size: 13px; color: var(--ink-soft); }
+footer .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer a:hover { color: var(--ink); }
+
+section { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <span class="logo-mark">30</span>
+    <span>30x · AI-Native GTM</span>
+  </a>
+  <div class="nav-links">
+    <a href="#constitutions">Six Constitutions</a>
+    <a href="#how">How it works</a>
+    <a href="#research">Research</a>
+    <a href="#library">Library</a>
+  </div>
+  <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="nav-cta">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    Star on GitHub
+  </a>
+</nav>
+
+<section class="hero">
+  <h1>AI-native GTM is <span class="strike">hard to win</span></h1>
+  <p class="sub">Foundation models reshuffle the market every six months. Most playbooks were written for a different world. This one wasn't.</p>
+  <div class="hero-ctas">
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="btn btn--primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+    <a href="#constitutions" class="btn btn--ghost">Read the manifesto</a>
+  </div>
+</section>
+
+<div class="logo-strip">
+  <div class="eyebrow">Patterns extracted from the playbooks of</div>
+  <div class="logos">
+    <span>Anthropic</span>
+    <span>OpenAI</span>
+    <span>Cursor</span>
+    <span>Lovable</span>
+    <span>Bolt.new</span>
+    <span>Vercel · v0</span>
+    <span>Replit</span>
+    <span>Modal</span>
+    <span>Cline</span>
+    <span>Perplexity</span>
+  </div>
+</div>
+
+<section class="panel panel--sky" id="constitutions">
+  <div class="panel-inner">
+    <span class="panel-eyebrow">Operating model</span>
+    <div class="panel-head">
+      <h2>Six constitutions for the way AI companies actually grow</h2>
+      <p class="desc">Six mental models, each one backed by empirical evidence — never a hot take. If a tactic doesn't trace back to one of these, it doesn't belong in this repo.</p>
+    </div>
+
+    <div class="illus-block">
+      <img class="illus-img" src="assets/illustrations/hero-illustration.png" alt="Operating model: six constitutions connected to a central node">
+      <ul class="feature-list">
+        <li><span class="dot"></span><span><b>Living ICP.</b> Drifts because foundation models drift. Weekly revision with evolution log.</span></li>
+        <li><span class="dot"></span><span><b>Technical Credibility Ladder.</b> Five rungs of proof an engineer can verify in five minutes.</span></li>
+        <li><span class="dot"></span><span><b>Community → Customer Funnel.</b> GitHub star → Discord → trial → paid → enterprise. Measurable.</span></li>
+        <li><span class="dot"></span><span><b>Capability Obsolescence Radar.</b> Your real competitor is GPT-6.</span></li>
+        <li><span class="dot"></span><span><b>Integration-Led Growth.</b> Marketing doesn't compound; integrations do.</span></li>
+        <li><span class="dot"></span><span><b>Agent-Native Distribution.</b> If you're not callable by Claude or Cursor, you're invisible.</span></li>
+      </ul>
+    </div>
+
+    <div class="consts" style="margin-top: 48px;">
+      <div class="const">
+        <div class="const__num">01</div>
+        <div class="const__title">Living ICP</div>
+        <p class="const__body">Static ICP rots in 30 days. AI-native ICP has three dimensions traditional SaaS doesn't: LLM Maturity Stage, Data Residency × Deployment, Model Spend Trajectory.</p>
+        <div class="const__tag">refreshed weekly</div>
+      </div>
+      <div class="const">
+        <div class="const__num">02</div>
+        <div class="const__title">Technical Credibility Ladder</div>
+        <p class="const__body">Replace value pillars with five rungs of proof. Cursor scaled to $2B ARR with zero marketing because the product was the proof at every rung.</p>
+        <div class="const__tag">5 rungs, no skipping</div>
+      </div>
+      <div class="const">
+        <div class="const__num">03</div>
+        <div class="const__title">Community → Customer</div>
+        <p class="const__body">Anthropic's enterprise logos are 54% self-serve. Bolt.new hit $40M ARR in 5 months without outbound. Lovable hit $100M in 8 months via founder Twitter.</p>
+        <div class="const__tag">outbound is the last step</div>
+      </div>
+      <div class="const">
+        <div class="const__num">04</div>
+        <div class="const__title">Capability Obsolescence Radar</div>
+        <p class="const__body">Jasper's ARR went from $90M projected to ~$55M after GPT-3.5. Chegg lost 48% market cap in one day. Character.AI sold for $2.7B in a reverse acqui-hire.</p>
+        <div class="const__tag">10 death cases in /research</div>
+      </div>
+      <div class="const">
+        <div class="const__num">05</div>
+        <div class="const__title">Integration-Led Growth</div>
+        <p class="const__body">v0 reached 4M users by riding Vercel's 6M-developer base. Every v0 generation has a "Deploy to Vercel" button. The integration <em>is</em> the GTM.</p>
+        <div class="const__tag">integrations compound</div>
+      </div>
+      <div class="const">
+        <div class="const__num">06</div>
+        <div class="const__title">Agent-Native Distribution</div>
+        <p class="const__body">10,000+ public MCP servers shipped in H2 2025. Anthropic donated MCP to the Linux Foundation. If your product isn't callable by Claude or Cursor in 2026, you're invisible.</p>
+        <div class="const__tag">the 2026 entry</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="how">
+  <div class="panel-inner">
+    <span class="panel-eyebrow">How it works</span>
+    <div class="panel-head">
+      <h2>Claude reads the repo. You stop pasting context.</h2>
+      <p class="desc">Clone the repo. Fill in <code>context/</code> once. Run GTM tasks from a single prompt. The institutional knowledge persists in git, grows weekly, and arrives context-rich into every Claude Code session.</p>
+    </div>
+
+    <div class="illus-block illus-right">
+      <ul class="feature-list">
+        <li><span class="dot"></span><span><b>CLAUDE.md</b> — the 2-minute lobby Claude reads first.</span></li>
+        <li><span class="dot"></span><span><b>context/</b> — your ICP, signals, positioning, competitors, personas. Weekly-revised.</span></li>
+        <li><span class="dot"></span><span><b>skills/</b> — seven repeatable SKILL.md actions including setup, technical-poc-brief, weekly-drift-audit.</span></li>
+        <li><span class="dot"></span><span><b>research/</b> — 950 lines of empirical evidence backing every constitution.</span></li>
+        <li><span class="dot"></span><span><b>workflows/ + playbooks/</b> — decision trees and emergency response scripts.</span></li>
+        <li><span class="dot"></span><span><b>sync/</b> — MCP-first live data connectors.</span></li>
+      </ul>
+      <img class="illus-img" src="assets/illustrations/how-it-works.png" alt="How Claude reads this repo: directory tree to Claude to outputs">
+    </div>
+  </div>
+</section>
+
+<section class="panel panel--orange" id="research">
+  <div class="panel-inner">
+    <span class="panel-eyebrow">Research</span>
+    <div class="panel-head">
+      <h2>Ten AI startups died. The patterns are documented.</h2>
+      <p class="desc">2022 to 2026. Every case sourced from public reporting with URLs. Use these as anchors when filling <code>context/competitor-radar.md</code> Section 2.</p>
+    </div>
+
+    <img class="illus-img" src="assets/illustrations/research-evidence.png" alt="Timeline of 10 AI startup death cases from 2022 to 2026" style="border-radius: var(--radius-lg); border: 1px solid rgba(20,20,26,0.1); margin-bottom: 8px;">
+
+    <div class="death-cases">
+      <div class="case"><div class="case__name">Jasper</div><div class="case__trigger">GPT-3.5 → ARR projection cut ~40%</div></div>
+      <div class="case"><div class="case__name">Chegg</div><div class="case__trigger">ChatGPT disclosure → -48% in a day</div></div>
+      <div class="case"><div class="case__name">Character.AI</div><div class="case__trigger">$5B → Google reverse acqui-hire $2.7B</div></div>
+      <div class="case"><div class="case__name">Inflection</div><div class="case__trigger">$4B → Microsoft non-acquisition</div></div>
+      <div class="case"><div class="case__name">Adept</div><div class="case__trigger">$1B → Amazon team license</div></div>
+      <div class="case"><div class="case__name">Stability AI</div><div class="case__trigger">$8M/mo burn → CEO out, layoffs</div></div>
+      <div class="case"><div class="case__name">Humane Pin</div><div class="case__trigger">$700M peak → $116M to HP, units bricked</div></div>
+      <div class="case"><div class="case__name">Rewind / Limitless</div><div class="case__trigger">a16z $350M → Meta acquired Dec 2025</div></div>
+      <div class="case"><div class="case__name">PDF Chat wave</div><div class="case__trigger">OpenAI DevDay 2023 → category cleared</div></div>
+      <div class="case"><div class="case__name">Voice AI</div><div class="case__trigger">gpt-realtime → margins collapsed</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel panel--ink cta-panel">
+  <div class="panel-inner">
+    <span class="panel-eyebrow">Clone it</span>
+    <div class="cta-content">
+      <div>
+        <h2 style="margin-bottom: 18px;">Clone the repo.<br>Fill in context.<br>Ship by lunch.</h2>
+        <p style="color: rgba(244,241,232,0.7); line-height: 1.55; max-width: 38ch; margin-bottom: 28px;">MIT license. Use it, fork it, ship it. Attribution appreciated, not required. 42 files, 5,353 lines, six constitutions, ten real death cases, twenty-two signal sources.</p>
+        <div class="hero-ctas" style="justify-content: flex-start;">
+          <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="btn btn--ghost" style="background: var(--paper); color: var(--ink);">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="code-block"><span class="prompt">$</span> git clone https://github.com/30XCOMPANY/30x-ai-native-gtm-starter my-gtm
+<span class="prompt">$</span> cd my-gtm
+<span class="prompt">$</span> claude
+<span class="comment"># then say:</span>
+&gt; run the setup skill on https://yourcompany.com
+
+<span class="comment"># Claude reads CLAUDE.md, populates context/</span>
+<span class="comment"># from your public footprint. Refine over coffee.</span>
+<span class="comment"># Ship outbound by lunch.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="library" style="margin-top: 80px;">
+  <div style="text-align: center; margin-bottom: 8px;">
+    <h2 style="max-width: 24ch; margin: 0 auto 16px;">Browse the research</h2>
+    <p style="color: var(--ink-soft); max-width: 56ch; margin: 0 auto; font-size: 16px; line-height: 1.55;">950 lines. 250+ URLs. Every claim cited. Updated as new cases emerge.</p>
+  </div>
+
+  <div class="library-grid">
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/research/01-capability-obsolescence-and-icp.md" class="lib-card">
+      <div class="lib-tag">research/01</div>
+      <h3>Capability Obsolescence + AI-Native ICP</h3>
+      <p>Ten AI startup death cases from 2022 to 2026. Three AI-native ICP dimensions traditional SaaS doesn't have. Five early-warning signals.</p>
+      <span class="lib-link">Read →</span>
+    </a>
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/research/02-gtm-motions-by-company.md" class="lib-card">
+      <div class="lib-tag">research/02</div>
+      <h3>GTM Motions by Company — 12 Teardowns</h3>
+      <p>Anthropic's MCP land grab. Cursor's zero-marketing $2B ARR. Lovable's founder tweet engine. Cline's anti-Cursor moral narrative.</p>
+      <span class="lib-link">Read →</span>
+    </a>
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/research/03-signals-and-pricing.md" class="lib-card">
+      <div class="lib-tag">research/03</div>
+      <h3>22 Signal Sources + Pricing Decoded</h3>
+      <p>The AI-native signal library plus 12 pricing teardowns with live numbers and five anti-SaaS pricing rules.</p>
+      <span class="lib-link">Read →</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-row">
+    <div>
+      <div style="font-weight: 600; color: var(--ink); margin-bottom: 6px;">30x AI-Native GTM Starter</div>
+      <div>Structurally inspired by <a class="link" href="https://github.com/KarlRaf/gtm-starter-kit">gtm-starter-kit</a>. Philosophically rebuilt for AI-native.</div>
+      <div style="margin-top: 10px;">MIT licensed. Part of the <a class="link" href="https://github.com/30XCOMPANY">30x</a> family.</div>
+    </div>
+    <div class="foot-links">
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter">GitHub</a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/LICENSE">License</a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/issues">Issues</a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/CLAUDE.md">CLAUDE.md</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>
