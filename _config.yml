@@ -1,0 +1,8 @@
+title: 30x AI-Native GTM Starter
+description: GTM starter for AI-native companies. Six constitutions + 22 signal sources + 10 real death cases.
+theme: jekyll-theme-cayman
+url: https://30xcompany.github.io
+baseurl: /30x-ai-native-gtm-starter
+show_downloads: true
+github:
+  repository_url: https://github.com/30XCOMPANY/30x-ai-native-gtm-starter
