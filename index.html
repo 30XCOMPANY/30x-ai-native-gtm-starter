@@ -139,7 +139,45 @@ body::before {
 /* ============================================================
    hero
    ============================================================ */
-.hero { padding: 80px 0 100px; text-align: center; position: relative; }
+.hero { padding: 100px 0 140px; text-align: center; position: relative; }
+.hero > *:not(.hero-bg) { position: relative; z-index: 2; }
+.hero-bg {
+  position: absolute; inset: -60px -10% 0;
+  pointer-events: none; z-index: 0;
+  overflow: hidden;
+  mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 50%, black 25%, transparent 78%);
+}
+.hero-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-bg .hb-line { stroke: var(--ink); stroke-width: 0.75; opacity: 0.16; fill: none; stroke-dasharray: 2 5; }
+.hero-bg .hb-orbit-line { stroke: var(--ink); stroke-width: 0.5; opacity: 0.1; fill: none; }
+.hero-bg .hb-dot { fill: var(--ink); }
+.hero-bg .hb-dot--accent { fill: var(--orange-deep); }
+.hero-bg .hb-spin-slow { transform-origin: 50% 50%; transform-box: view-box; animation: hb-spin 48s linear infinite; }
+.hero-bg .hb-spin-rev  { transform-origin: 50% 50%; transform-box: view-box; animation: hb-spin 64s linear infinite reverse; }
+.hero-bg .hb-drift     { animation: hb-drift 22s ease-in-out infinite alternate; }
+.hero-bg .hb-pulse-a { animation: hb-pulse 4.5s ease-in-out infinite; }
+.hero-bg .hb-pulse-b { animation: hb-pulse 6s ease-in-out infinite 1.2s; }
+.hero-bg .hb-pulse-c { animation: hb-pulse 5.5s ease-in-out infinite 2.4s; }
+.hero-bg .hb-glow {
+  position: absolute; left: 18%; right: 18%; top: 12%; bottom: 12%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(240,176,128,0.22), transparent 65%);
+  animation: hb-breathe 9s ease-in-out infinite;
+  filter: blur(28px);
+}
+@keyframes hb-spin { to { transform: rotate(360deg); } }
+@keyframes hb-drift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(18px, -10px); }
+}
+@keyframes hb-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 0.7; }
+}
+@keyframes hb-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(0.92); }
+  50%      { opacity: 1;    transform: scale(1.08); }
+}
 .hero h1 { max-width: 13ch; margin: 0 auto 26px; opacity: 0; animation: rise 1.2s var(--ease-out) 0.1s forwards; }
 .hero h1 em {
   font-family: var(--font-serif);
@@ -416,72 +454,112 @@ body::before {
    ============================================================ */
 .timeline {
   position: relative;
-  padding: 60px 24px 80px;
+  padding: 90px 32px 110px;
   background: var(--paper);
   border: 1px solid rgba(15,14,19,0.1);
   border-radius: var(--r-l);
   overflow-x: auto;
+  overflow-y: visible;
 }
 .timeline-rail {
   position: relative;
-  height: 220px;
-  min-width: 760px;
+  height: 130px;
+  min-width: 1100px;
 }
 .timeline-axis {
   position: absolute; top: 50%; left: 0; right: 0;
-  height: 1.5px; background: var(--ink); opacity: 0.5;
+  height: 1.5px;
+  background: linear-gradient(to right, transparent, var(--ink) 6%, var(--ink) 94%, transparent);
+  opacity: 0.4;
 }
 .timeline-year {
   position: absolute; top: 50%;
-  transform: translate(-50%, 12px);
+  transform: translate(-50%, 22px);
   font: 500 11px/1 var(--font-mono);
   color: var(--ink-soft);
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
 }
 .timeline-year::before {
-  content: ""; position: absolute; left: 50%; top: -10px;
-  width: 1.5px; height: 8px;
-  background: var(--ink); opacity: 0.4;
+  content: ""; position: absolute; left: 50%; top: -16px;
+  width: 1px; height: 10px;
+  background: var(--ink); opacity: 0.35;
   transform: translateX(-50%);
 }
 .death-marker {
   position: absolute; top: 50%;
   transform: translate(-50%, -50%) scale(0);
-  width: 38px; height: 38px;
+  width: 36px; height: 36px;
   border-radius: 50%;
   background: var(--paper);
   border: 1.5px solid var(--ink);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s var(--ease-snap), background 0.2s, border-color 0.2s;
+  transition: transform 0.3s var(--ease-snap), background 0.25s, border-color 0.25s, box-shadow 0.25s;
   z-index: 2;
 }
 .death-marker.visible {
   animation: pop 0.5s var(--ease-snap) forwards;
 }
-.death-marker:hover { background: var(--orange-deep); border-color: var(--orange-deep); }
-.death-marker:hover svg { stroke: var(--paper); }
-.death-marker svg { width: 16px; height: 16px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
-.death-marker .above, .death-marker .below {
+.death-marker:hover, .death-marker:focus-visible {
+  background: var(--ink); border-color: var(--ink);
+  box-shadow: 0 0 0 6px rgba(15,14,19,0.08);
+}
+.death-marker:hover svg, .death-marker:focus-visible svg { stroke: var(--paper); }
+.death-marker svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 1.6; transition: stroke 0.25s; }
+
+/* default-visible name label — alternates above/below for breathing room */
+.death-marker .name {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  font: 500 11.5px/1.1 var(--font-sans);
+  letter-spacing: -0.012em; color: var(--ink);
+  white-space: nowrap; pointer-events: none;
+  transition: color 0.25s, transform 0.25s var(--ease-out);
+}
+.death-marker[data-side="above"] .name { bottom: calc(100% + 14px); }
+.death-marker[data-side="below"] .name { top: calc(100% + 30px); }
+.death-marker:hover .name {
+  color: var(--orange-deep);
+  transform: translateX(-50%) translateY(-2px);
+}
+.death-marker[data-side="below"]:hover .name { transform: translateX(-50%) translateY(2px); }
+
+/* hover-only trigger detail — appears as a floating callout */
+.death-marker .trigger {
   position: absolute; left: 50%;
-  font: 500 12px/1.2 var(--font-sans);
-  letter-spacing: -0.01em; color: var(--ink);
-  white-space: nowrap;
-  transform: translateX(-50%);
-  pointer-events: none;
+  font: 400 11px/1.4 var(--font-mono);
+  letter-spacing: -0.005em; color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  padding: 8px 12px;
+  white-space: nowrap; pointer-events: none;
+  opacity: 0; transform: translateX(-50%) translateY(6px);
+  transition: opacity 0.25s, transform 0.3s var(--ease-out);
+  box-shadow: var(--shadow-md);
+  z-index: 5;
 }
-.death-marker .above { bottom: calc(100% + 14px); }
-.death-marker .below {
-  top: calc(100% + 12px);
-  font: 400 10.5px/1.3 var(--font-mono);
-  color: var(--ink-soft); letter-spacing: 0;
-  max-width: 140px;
-  text-align: center; white-space: normal;
+.death-marker[data-side="above"] .trigger { top: calc(100% + 14px); }
+.death-marker[data-side="below"] .trigger {
+  bottom: calc(100% + 14px);
+  transform: translateX(-50%) translateY(-6px);
 }
+.death-marker:hover .trigger, .death-marker:focus-visible .trigger {
+  opacity: 1; transform: translateX(-50%) translateY(0);
+}
+
 @keyframes pop {
   0% { transform: translate(-50%, -50%) scale(0); }
-  60% { transform: translate(-50%, -50%) scale(1.2); }
+  60% { transform: translate(-50%, -50%) scale(1.18); }
   100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* hint text in timeline */
+.timeline .hint {
+  position: absolute; top: 24px; left: 0; right: 0;
+  text-align: center;
+  font: 500 11px/1 var(--font-mono); letter-spacing: 0.16em;
+  color: var(--ink-soft); text-transform: uppercase;
+  opacity: 0.6;
 }
 
 /* ============================================================
@@ -587,7 +665,8 @@ footer .brand-label { font-weight: 600; color: var(--ink); margin-bottom: 6px; }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
-section { scroll-margin-top: 84px; }
+section { scroll-margin-top: 100px; }
+.panel { scroll-margin-top: 100px; }
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -621,6 +700,37 @@ section { scroll-margin-top: 84px; }
 
 <!-- ============================================================ HERO ============================================================ -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hb-glow"></div>
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+      <!-- soft orbit rings, slowly rotating -->
+      <g class="hb-spin-slow" opacity="0.9">
+        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="320" ry="220"/>
+        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="450" ry="300"/>
+        <circle class="hb-dot hb-pulse-a" cx="920" cy="350" r="2.5"/>
+        <circle class="hb-dot hb-pulse-b" cx="280" cy="350" r="2"/>
+      </g>
+      <g class="hb-spin-rev" opacity="0.9">
+        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="220" ry="160"/>
+        <circle class="hb-dot--accent hb-pulse-c" cx="600" cy="190" r="2.8"/>
+        <circle class="hb-dot hb-pulse-a" cx="600" cy="510" r="2"/>
+      </g>
+      <!-- drifting cluster of tiny dots -->
+      <g class="hb-drift">
+        <circle class="hb-dot hb-pulse-b" cx="180" cy="180" r="1.6" opacity="0.55"/>
+        <circle class="hb-dot hb-pulse-c" cx="1030" cy="220" r="1.4" opacity="0.45"/>
+        <circle class="hb-dot hb-pulse-a" cx="200" cy="540" r="1.8" opacity="0.5"/>
+        <circle class="hb-dot hb-pulse-b" cx="1010" cy="500" r="1.5" opacity="0.5"/>
+        <circle class="hb-dot--accent hb-pulse-c" cx="120" cy="360" r="1.6" opacity="0.6"/>
+        <circle class="hb-dot hb-pulse-a" cx="1080" cy="360" r="1.5" opacity="0.45"/>
+      </g>
+      <!-- subtle dashed connectors -->
+      <path class="hb-line hb-pulse-a" d="M 180 180 Q 400 110 600 190"/>
+      <path class="hb-line hb-pulse-b" d="M 1030 220 Q 820 110 600 190"/>
+      <path class="hb-line hb-pulse-c" d="M 200 540 Q 400 600 600 510"/>
+      <path class="hb-line hb-pulse-a" d="M 1010 500 Q 820 600 600 510"/>
+    </svg>
+  </div>
   <h1>AI-native GTM is <em><span class="strike">hard to win</span></em></h1>
   <p class="sub">Foundation models reshuffle the market every six months. Most playbooks weren't built for that.</p>
   <div class="hero-ctas">
@@ -665,34 +775,28 @@ section { scroll-margin-top: 84px; }
           <text class="core-label" x="200" y="204">CLAUDE</text>
           <!-- nodes -->
           <g>
-            <circle class="node-circle" cx="200" cy="70" r="26"/>
+            <circle class="node-circle" cx="200" cy="70" r="28"/>
             <text class="node-label" x="200" y="74">ICP</text>
-            <text class="node-label" style="font-size:9px;fill:var(--ink-soft);" x="200" y="48">01</text>
           </g>
           <g>
-            <circle class="node-circle" cx="313" cy="135" r="26"/>
+            <circle class="node-circle" cx="313" cy="135" r="28"/>
             <text class="node-label" x="313" y="139">Ladder</text>
-            <text class="node-label" style="font-size:9px;fill:var(--ink-soft);" x="350" y="115">02</text>
           </g>
           <g>
-            <circle class="node-circle" cx="313" cy="265" r="26"/>
+            <circle class="node-circle" cx="313" cy="265" r="28"/>
             <text class="node-label" x="313" y="269">Funnel</text>
-            <text class="node-label" style="font-size:9px;fill:var(--ink-soft);" x="350" y="296">03</text>
           </g>
           <g>
-            <circle class="node-circle" cx="200" cy="330" r="26"/>
+            <circle class="node-circle" cx="200" cy="330" r="28"/>
             <text class="node-label" x="200" y="334">Radar</text>
-            <text class="node-label" style="font-size:9px;fill:var(--ink-soft);" x="200" y="358">04</text>
           </g>
           <g>
-            <circle class="node-circle" cx="87" cy="265" r="26"/>
+            <circle class="node-circle" cx="87" cy="265" r="28"/>
             <text class="node-label" x="87" y="269">Integration</text>
-            <text class="node-label" style="font-size:9px;fill:var(--ink-soft);" x="50" y="296">05</text>
           </g>
           <g>
-            <circle class="node-circle" cx="87" cy="135" r="26"/>
+            <circle class="node-circle" cx="87" cy="135" r="28"/>
             <text class="node-label" x="87" y="139">Agent</text>
-            <text class="node-label" style="font-size:9px;fill:var(--ink-soft);" x="50" y="115">06</text>
           </g>
         </svg>
       </div>
@@ -826,43 +930,64 @@ section { scroll-margin-top: 84px; }
     </div>
 
     <div class="timeline" id="timeline">
+      <span class="hint">hover for the trigger</span>
       <div class="timeline-rail">
         <div class="timeline-axis"></div>
-        <div class="timeline-year" style="left: 5%;">2022</div>
-        <div class="timeline-year" style="left: 25%;">2023</div>
+        <div class="timeline-year" style="left: 6%;">2022</div>
+        <div class="timeline-year" style="left: 28%;">2023</div>
         <div class="timeline-year" style="left: 50%;">2024</div>
-        <div class="timeline-year" style="left: 75%;">2025</div>
-        <div class="timeline-year" style="left: 95%;">2026</div>
+        <div class="timeline-year" style="left: 72%;">2025</div>
+        <div class="timeline-year" style="left: 94%;">2026</div>
 
-        <div class="death-marker" data-x="11" data-side="above" data-label="Jasper" data-trigger="GPT-3.5 cut ARR proj ~40%">
+        <div class="death-marker" data-x="9"  data-side="above" data-trigger="GPT-3.5 → ARR proj cut 40%">
           <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <span class="name">Jasper</span>
+          <span class="trigger">GPT-3.5 cut ARR proj ~40%</span>
         </div>
-        <div class="death-marker" data-x="22" data-side="below" data-label="Chegg" data-trigger="ChatGPT → -48% in a day">
+        <div class="death-marker" data-x="21" data-side="below" data-trigger="ChatGPT disclosed → -48%">
           <svg viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M6 18L18 6"/></svg>
+          <span class="name">Chegg</span>
+          <span class="trigger">ChatGPT impact → -48% in a day</span>
         </div>
-        <div class="death-marker" data-x="33" data-side="above" data-label="PDF Chat wave" data-trigger="OpenAI DevDay '23 → cleared">
+        <div class="death-marker" data-x="34" data-side="above" data-trigger="DevDay '23 cleared wave">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
+          <span class="name">PDF Chat</span>
+          <span class="trigger">OpenAI DevDay '23 → category cleared</span>
         </div>
-        <div class="death-marker" data-x="44" data-side="below" data-label="Inflection" data-trigger="$4B → MSFT non-acquisition">
+        <div class="death-marker" data-x="44" data-side="below" data-trigger="$4B → MSFT non-acquisition">
           <svg viewBox="0 0 24 24"><path d="M12 4v16"/></svg>
+          <span class="name">Inflection</span>
+          <span class="trigger">$4B → MSFT non-acquisition (Mar '24)</span>
         </div>
-        <div class="death-marker" data-x="54" data-side="above" data-label="Stability" data-trigger="$8M/mo burn → CEO out">
+        <div class="death-marker" data-x="55" data-side="above" data-trigger="$8M/mo burn, CEO out">
           <svg viewBox="0 0 24 24"><path d="M3 12h18"/></svg>
+          <span class="name">Stability</span>
+          <span class="trigger">$8M/mo burn → CEO resign, layoffs</span>
         </div>
-        <div class="death-marker" data-x="62" data-side="below" data-label="Adept" data-trigger="$1B → AMZN team license">
+        <div class="death-marker" data-x="64" data-side="below" data-trigger="$1B → Amazon team license">
           <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+          <span class="name">Adept</span>
+          <span class="trigger">$1B → Amazon license + team (Jun '24)</span>
         </div>
-        <div class="death-marker" data-x="71" data-side="above" data-label="Character.AI" data-trigger="$5B → $2.7B reverse acqui-hire">
+        <div class="death-marker" data-x="74" data-side="above" data-trigger="$5B → $2.7B reverse acqui-hire">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+          <span class="name">Character.AI</span>
+          <span class="trigger">$5B → $2.7B Google reverse acqui-hire</span>
         </div>
-        <div class="death-marker" data-x="80" data-side="below" data-label="Humane Pin" data-trigger="$700M → $116M, units bricked">
+        <div class="death-marker" data-x="82" data-side="below" data-trigger="$700M → $116M, units bricked">
           <svg viewBox="0 0 24 24"><path d="M12 2L3 21h18z"/></svg>
+          <span class="name">Humane Pin</span>
+          <span class="trigger">$700M → $116M to HP, units bricked</span>
         </div>
-        <div class="death-marker" data-x="87" data-side="above" data-label="Voice AI" data-trigger="gpt-realtime → margins collapsed">
+        <div class="death-marker" data-x="89" data-side="above" data-trigger="gpt-realtime → margins collapsed">
           <svg viewBox="0 0 24 24"><path d="M3 12c0-4 4-8 9-8s9 4 9 8-4 8-9 8"/></svg>
+          <span class="name">Voice AI</span>
+          <span class="trigger">gpt-realtime → margins collapsed</span>
         </div>
-        <div class="death-marker" data-x="93" data-side="below" data-label="Rewind / Limitless" data-trigger="a16z $350M → Meta acq Dec '25">
+        <div class="death-marker" data-x="95" data-side="below" data-trigger="$350M → Meta acquired Dec '25">
           <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 5 2 8L12 17l-6.5 5 2-8L2 9h7z" fill="none"/></svg>
+          <span class="name">Rewind</span>
+          <span class="trigger">a16z $350M → Meta acquired (Dec '25)</span>
         </div>
       </div>
     </div>
@@ -959,29 +1084,13 @@ section { scroll-margin-top: 84px; }
   const timeline = document.getElementById('timeline');
   if (timeline) {
     const markers = timeline.querySelectorAll('.death-marker');
-    markers.forEach((m) => {
-      const x = m.dataset.x;
-      m.style.left = x + '%';
-      const side = m.dataset.side;
-      const label = m.dataset.label;
-      const trigger = m.dataset.trigger;
-      const aboveOrBelow = side === 'above' ? 'above' : 'below';
-      const otherSide = side === 'above' ? 'below' : 'above';
-      const labelEl = document.createElement('span');
-      labelEl.className = aboveOrBelow;
-      labelEl.textContent = label;
-      const triggerEl = document.createElement('span');
-      triggerEl.className = otherSide;
-      triggerEl.textContent = trigger;
-      m.appendChild(labelEl);
-      m.appendChild(triggerEl);
-    });
+    markers.forEach((m) => { m.style.left = m.dataset.x + '%'; });
 
     const timelineIO = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
           markers.forEach((m, i) => {
-            setTimeout(() => m.classList.add('visible'), 120 + i * 90);
+            setTimeout(() => m.classList.add('visible'), 120 + i * 70);
           });
           timelineIO.unobserve(e.target);
         }
