@@ -4,17 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>30x AI-Native GTM Starter</title>
-<meta name="description" content="GTM starter for AI-native companies. Six constitutions + 22 signal sources + 10 real death cases.">
+<meta name="description" content="A scaffold for AI-native go-to-market. Eight functional folders mapped to a real GTM org. Built for Claude Code.">
 <meta property="og:title" content="30x AI-Native GTM Starter">
-<meta property="og:description" content="Six Constitutions. Twenty-two signal sources. Ten real AI-startup death cases. Open source.">
+<meta property="og:description" content="The shape of a real GTM org, mapped to folders. Open source. Built for Claude Code.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://30xcompany.github.io/30x-ai-native-gtm-starter/">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
-/* ============================================================
-   tokens
-   ============================================================ */
 :root {
   --paper: #FBF9F4;
   --paper-2: #F4F1E8;
@@ -23,7 +20,6 @@
   --ink-2: #2A2832;
   --ink-soft: #56535E;
   --muted: #8E8B96;
-
   --sky: #C8E4F3;
   --sky-deep: #1B5A82;
   --orange: #F0B080;
@@ -32,37 +28,27 @@
   --purple-deep: #524380;
   --green: #B6D5B0;
   --moss: #4A6B47;
-
   --r-s: 8px;
   --r-m: 14px;
   --r-l: 22px;
   --r-xl: 32px;
-
   --shadow-sm: 0 1px 0 rgba(15,14,19,0.06), 0 1px 2px rgba(15,14,19,0.04);
   --shadow-md: 0 4px 14px rgba(15,14,19,0.06), 0 1px 0 rgba(15,14,19,0.04);
   --shadow-lg: 0 24px 48px rgba(15,14,19,0.08), 0 4px 0 rgba(15,14,19,0.04);
-
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-snap: cubic-bezier(0.5, 1.6, 0.5, 1);
-
   --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-
-/* ============================================================
-   base
-   ============================================================ */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--paper); color: var(--ink);
   font: 400 16px/1.55 var(--font-sans);
   letter-spacing: -0.006em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 img { max-width: 100%; display: block; height: auto; }
@@ -75,19 +61,8 @@ h1 { font-size: clamp(44px, 8vw, 92px); }
 h2 { font-size: clamp(32px, 5vw, 56px); }
 h3 { font-size: clamp(18px, 2vw, 22px); }
 p { margin: 0; }
-
 ::selection { background: var(--orange); color: var(--ink); }
 
-/* page grain — adds organic texture */
-body::before {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1000;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.7; mix-blend-mode: multiply;
-}
-
-/* ============================================================
-   layout
-   ============================================================ */
 .page { max-width: 1240px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
 @media (min-width: 768px) { .page { padding: 0 40px; } }
 
@@ -98,7 +73,7 @@ body::before {
   display: flex; align-items: center; justify-content: space-between;
   padding: 22px 0; gap: 24px;
   position: sticky; top: 0; z-index: 100;
-  background: rgba(251, 249, 244, 0.78);
+  background: rgba(251, 249, 244, 0.88);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   margin: 0 -20px; padding-left: 20px; padding-right: 20px;
 }
@@ -126,10 +101,8 @@ body::before {
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-cta {
   display: inline-flex; align-items: center; gap: 7px;
-  padding: 9px 16px;
-  background: var(--ink); color: var(--paper);
-  border-radius: 999px;
-  font-size: 13px; font-weight: 500;
+  padding: 9px 16px; background: var(--ink); color: var(--paper);
+  border-radius: 999px; font-size: 13px; font-weight: 500;
   transition: transform 0.2s var(--ease-out), background 0.2s;
 }
 .nav-cta:hover { transform: translateY(-1px); background: var(--ink-2); }
@@ -140,74 +113,10 @@ body::before {
    hero
    ============================================================ */
 .hero { padding: 90px 0 110px; text-align: center; position: relative; }
-
-/* hero eyebrow pill */
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 7px 14px;
-  background: var(--paper);
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  font: 500 11.5px/1 var(--font-mono);
-  letter-spacing: 0.06em;
-  margin-bottom: 26px;
-  opacity: 0;
-  animation: rise 1s var(--ease-out) 0s forwards;
-  box-shadow: var(--shadow-sm);
-}
-.hero-eyebrow .pulse-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--orange-deep);
-  position: relative;
-}
-.hero-eyebrow .pulse-dot::after {
-  content: ""; position: absolute; inset: -3px;
-  border-radius: 50%; background: var(--orange-deep);
-  opacity: 0.4; animation: dot-pulse 1.8s ease-out infinite;
-}
-.hero-eyebrow .sep { color: var(--ink-soft); opacity: 0.4; }
-@keyframes dot-pulse {
-  0%   { transform: scale(1); opacity: 0.4; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-
-/* hero stats */
-.hero-stats {
-  display: flex; justify-content: center; gap: 0;
-  margin-top: 56px;
-  opacity: 0;
-  animation: rise 1.2s var(--ease-out) 0.75s forwards;
-}
-.hero-stat {
-  padding: 0 28px;
-  border-left: 1px solid rgba(15,14,19,0.12);
-  text-align: center;
-  min-width: 130px;
-}
-.hero-stat:first-child { border-left: none; }
-.hero-stat .num {
-  font: 500 36px/1 var(--font-sans);
-  letter-spacing: -0.04em;
-  color: var(--ink);
-  display: block;
-  margin-bottom: 6px;
-}
-.hero-stat .num em {
-  font-family: var(--font-serif); font-style: italic;
-  font-weight: 400;
-}
-.hero-stat .lbl {
-  font: 500 10.5px/1 var(--font-mono);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
 .hero h1 { max-width: 14ch; margin: 0 auto 26px; opacity: 0; animation: rise 1.2s var(--ease-out) 0.1s forwards; }
 .hero h1 em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-serif); font-style: italic;
+  font-weight: 400; letter-spacing: -0.02em;
 }
 .hero h1 .strike { position: relative; display: inline-block; }
 .hero h1 .strike::after {
@@ -217,24 +126,41 @@ body::before {
   animation: draw 0.8s var(--ease-out) 1.1s forwards;
 }
 .hero .sub {
-  max-width: 50ch; margin: 0 auto 36px;
+  max-width: 52ch; margin: 0 auto 36px;
   font-size: clamp(16px, 1.5vw, 19px);
   color: var(--ink-soft); line-height: 1.55;
   opacity: 0; animation: rise 1.2s var(--ease-out) 0.35s forwards;
 }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px;
+  background: var(--paper); border: 1px solid var(--ink);
+  border-radius: 999px;
+  font: 500 11.5px/1 var(--font-mono);
+  letter-spacing: 0.06em; margin-bottom: 26px;
+  opacity: 0; animation: rise 1s var(--ease-out) 0s forwards;
+  box-shadow: var(--shadow-sm);
+}
+.hero-eyebrow .pulse-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--orange-deep); position: relative;
+}
+.hero-eyebrow .pulse-dot::after {
+  content: ""; position: absolute; inset: -3px;
+  border-radius: 50%; background: var(--orange-deep);
+  opacity: 0.4; animation: dot-pulse 1.8s ease-out infinite;
+}
+.hero-eyebrow .sep { color: var(--ink-soft); opacity: 0.4; }
 .hero-ctas {
   display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
   opacity: 0; animation: rise 1.2s var(--ease-out) 0.55s forwards;
 }
-
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 22px;
-  border-radius: 999px;
+  padding: 13px 22px; border-radius: 999px;
   font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
   transition: transform 0.2s var(--ease-out), background 0.2s, box-shadow 0.2s, color 0.2s;
-  cursor: pointer;
-  border: 1.5px solid var(--ink);
+  cursor: pointer; border: 1.5px solid var(--ink);
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
@@ -245,19 +171,38 @@ body::before {
 .btn svg { transition: transform 0.3s var(--ease-snap); }
 .btn:hover svg { transform: translateX(3px); }
 
-@keyframes rise {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero-stats {
+  display: flex; justify-content: center; gap: 0;
+  margin-top: 56px;
+  opacity: 0; animation: rise 1.2s var(--ease-out) 0.75s forwards;
+  flex-wrap: wrap;
 }
+.hero-stat {
+  padding: 0 28px;
+  border-left: 1px solid rgba(15,14,19,0.12);
+  text-align: center; min-width: 130px;
+}
+.hero-stat:first-child { border-left: none; }
+.hero-stat .num {
+  font: 500 36px/1 var(--font-sans);
+  letter-spacing: -0.04em; color: var(--ink);
+  display: block; margin-bottom: 6px;
+}
+.hero-stat .lbl {
+  font: 500 10.5px/1 var(--font-mono);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes draw { to { transform: scaleX(1); } }
+@keyframes dot-pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(2.4); opacity: 0; } }
 
 /* ============================================================
    logo strip — marquee
    ============================================================ */
 .logo-strip {
-  margin: 0 0 100px;
-  overflow: hidden;
-  position: relative;
+  margin: 0 0 100px; overflow: hidden; position: relative;
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
@@ -278,20 +223,14 @@ body::before {
   white-space: nowrap;
 }
 .logo-track span:hover { opacity: 1; color: var(--ink); }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ============================================================
    panel
    ============================================================ */
 .panel {
-  border-radius: var(--r-xl);
-  margin-bottom: 24px;
-  background: var(--paper);
-  overflow: hidden;
-  position: relative;
+  border-radius: var(--r-xl); margin-bottom: 24px;
+  background: var(--paper); overflow: hidden; position: relative;
   border: 1px solid var(--ink);
 }
 .panel--sky { background: var(--sky); }
@@ -299,148 +238,84 @@ body::before {
 .panel--purple { background: var(--purple); }
 .panel--ink { background: var(--ink); color: var(--paper); }
 .panel--ink h2, .panel--ink h3 { color: var(--paper); }
-
 .panel-inner { padding: 40px 26px; }
 @media (min-width: 768px) { .panel-inner { padding: 72px 64px; } }
-
 .panel-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   padding: 6px 12px;
   border: 1px solid var(--ink); border-radius: 999px;
-  margin-bottom: 28px;
-  backdrop-filter: blur(8px);
+  margin-bottom: 28px; backdrop-filter: blur(8px);
 }
 .panel-eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--ink); }
 .panel--ink .panel-eyebrow { border-color: var(--paper); }
 .panel--ink .panel-eyebrow::before { background: var(--orange); }
-
 .panel-head { margin-bottom: 48px; }
-.panel-head h2 { max-width: 16ch; margin-bottom: 16px; }
+.panel-head h2 { max-width: 18ch; margin-bottom: 16px; }
 .panel-head h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
-.panel-head .desc { max-width: 52ch; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+.panel-head .desc { max-width: 56ch; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
 .panel--ink .panel-head .desc { color: rgba(251,249,244,0.65); }
-.panel--sky .panel-head .desc,
-.panel--purple .panel-head .desc,
-.panel--orange .panel-head .desc { color: rgba(15,14,19,0.65); }
+.panel--sky .panel-head .desc, .panel--purple .panel-head .desc, .panel--orange .panel-head .desc { color: rgba(15,14,19,0.65); }
 
 /* ============================================================
-   constellation — SVG visualisation for constitutions
+   architecture grid (the v1 hero panel)
+   ============================================================ */
+.folder-grid {
+  display: grid; gap: 14px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) { .folder-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .folder-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+.folder {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: var(--r-l);
+  padding: 22px;
+  display: flex; flex-direction: column;
+  min-height: 200px;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+  position: relative; overflow: hidden;
+}
+.folder:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.folder__icon {
+  font: 500 14px/1 var(--font-mono);
+  color: var(--orange-deep);
+  margin-bottom: 18px;
+  letter-spacing: 0;
+}
+.folder__name {
+  font-size: 17px; font-weight: 600;
+  letter-spacing: -0.02em; margin-bottom: 8px;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+.folder__desc {
+  font-size: 13.5px; color: var(--ink-soft);
+  line-height: 1.5; flex: 1;
+}
+.folder__entry {
+  margin-top: 14px;
+  font: 500 11px/1.3 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--ink);
+  padding-top: 12px;
+  border-top: 1px solid rgba(15,14,19,0.08);
+}
+.folder__entry .lbl {
+  font-size: 9.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+  display: block; margin-bottom: 5px;
+}
+
+/* ============================================================
+   illustration block (used by how-it-works + flavor)
    ============================================================ */
 .viz-block { display: grid; gap: 32px; align-items: center; grid-template-columns: 1fr; }
 @media (min-width: 900px) { .viz-block { grid-template-columns: 1.1fr 1fr; gap: 64px; } .viz-block.viz-right { grid-template-columns: 1fr 1.1fr; } }
 
-.constellation {
-  aspect-ratio: 1 / 1;
-  position: relative;
-  border-radius: var(--r-l);
-  background: linear-gradient(180deg, rgba(251,249,244,0.7), rgba(251,249,244,0.3));
-  border: 1px solid rgba(15,14,19,0.08);
-  overflow: hidden;
-}
-.constellation svg { width: 100%; height: 100%; display: block; }
-.constellation .node-circle {
-  fill: var(--paper); stroke: var(--ink); stroke-width: 1.5;
-  transition: fill 0.3s, transform 0.4s var(--ease-snap);
-  transform-origin: center; transform-box: fill-box;
-  cursor: pointer;
-}
-.constellation .node-circle:hover { fill: var(--orange); transform: scale(1.15); }
-.constellation .node-label {
-  font: 500 11px/1 var(--font-sans);
-  letter-spacing: -0.01em;
-  fill: var(--ink); text-anchor: middle;
-}
-.constellation .core {
-  fill: var(--ink); animation: pulse 3s ease-in-out infinite;
-}
-.constellation .core-label {
-  font: 500 10px/1 var(--font-mono); letter-spacing: 0.1em;
-  fill: var(--paper); text-anchor: middle;
-}
-.constellation .spoke {
-  stroke: var(--ink); stroke-width: 1; opacity: 0.25;
-  stroke-dasharray: 3 3;
-  animation: dash 8s linear infinite;
-}
-@keyframes pulse { 0%, 100% { transform-origin: center; transform-box: fill-box; opacity: 1; } 50% { opacity: 0.7; } }
-@keyframes dash { to { stroke-dashoffset: -24; } }
-
-.feature-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
-.feature-list li {
-  display: flex; gap: 14px; align-items: flex-start;
-  font-size: 16px; line-height: 1.55;
-  padding: 12px 14px; margin: 0 -14px;
-  border-radius: var(--r-s);
-  transition: background 0.2s;
-}
-.feature-list li:hover { background: rgba(15,14,19,0.04); }
-.feature-list .dot {
-  flex-shrink: 0; width: 7px; height: 7px;
-  border-radius: 50%; background: var(--ink);
-  margin-top: 10px;
-}
-.feature-list b { font-weight: 600; }
-
-/* ============================================================
-   constitution cards
-   ============================================================ */
-.consts {
-  display: grid; gap: 14px;
-  grid-template-columns: 1fr;
-  margin-top: 56px;
-}
-@media (min-width: 700px) { .consts { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1000px) { .consts { grid-template-columns: 1fr 1fr 1fr; } }
-
-.const {
-  background: var(--paper);
-  border: 1px solid var(--ink);
-  border-radius: var(--r-l);
-  padding: 24px;
-  display: flex; flex-direction: column;
-  min-height: 200px;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s, background 0.3s;
-  position: relative; overflow: hidden;
-}
-.const::before {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(circle at 100% 0%, rgba(240,176,128,0.18), transparent 60%);
-  opacity: 0; transition: opacity 0.4s;
-  pointer-events: none;
-}
-.const:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.const:hover::before { opacity: 1; }
-.const__num {
-  font-family: var(--font-mono); font-size: 11px;
-  color: var(--orange-deep); margin-bottom: 18px;
-  font-weight: 500; letter-spacing: 0;
-}
-.const__title {
-  font-size: 20px; font-weight: 500;
-  letter-spacing: -0.02em; margin-bottom: 12px;
-  line-height: 1.15;
-}
-.const__body {
-  font-size: 14px; color: var(--ink-soft);
-  line-height: 1.55; flex: 1;
-}
-.const__tag {
-  margin-top: 16px;
-  font-size: 10.5px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--orange-deep);
-  display: inline-flex; align-items: center; gap: 6px;
-}
-.const__tag::before { content: ""; width: 14px; height: 1.5px; background: currentColor; }
-
-/* ============================================================
-   how-it-works — repo flow diagram
-   ============================================================ */
 .flow {
-  aspect-ratio: 4 / 3;
-  position: relative;
+  aspect-ratio: 4 / 3; position: relative;
   border-radius: var(--r-l);
   background: var(--paper);
   border: 1px solid rgba(15,14,19,0.1);
@@ -473,8 +348,25 @@ body::before {
   100% { opacity: 0; stroke-dashoffset: -30; }
 }
 
+.feature-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.feature-list li {
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 16px; line-height: 1.55;
+  padding: 12px 14px; margin: 0 -14px;
+  border-radius: var(--r-s);
+  transition: background 0.2s;
+}
+.feature-list li:hover { background: rgba(15,14,19,0.04); }
+.feature-list .dot {
+  flex-shrink: 0; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--ink);
+  margin-top: 10px;
+}
+.feature-list b { font-weight: 600; }
+.feature-list code { font-size: 0.95em; }
+
 /* ============================================================
-   research — death-case timeline
+   death cases timeline
    ============================================================ */
 .timeline {
   position: relative;
@@ -482,14 +374,9 @@ body::before {
   background: var(--paper);
   border: 1px solid rgba(15,14,19,0.1);
   border-radius: var(--r-l);
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow-x: auto; overflow-y: visible;
 }
-.timeline-rail {
-  position: relative;
-  height: 130px;
-  min-width: 1100px;
-}
+.timeline-rail { position: relative; height: 130px; min-width: 1100px; }
 .timeline-axis {
   position: absolute; top: 50%; left: 0; right: 0;
   height: 1.5px;
@@ -500,11 +387,9 @@ body::before {
   position: absolute; top: 50%;
   transform: translate(-50%, 56px);
   font: 500 11px/1 var(--font-mono);
-  color: var(--ink-soft);
-  letter-spacing: 0.06em;
+  color: var(--ink-soft); letter-spacing: 0.06em;
   padding: 4px 10px;
-  background: var(--paper);
-  border-radius: 999px;
+  background: var(--paper); border-radius: 999px;
   border: 1px solid rgba(15,14,19,0.08);
 }
 .timeline-year::before {
@@ -516,26 +401,20 @@ body::before {
 .death-marker {
   position: absolute; top: 50%;
   transform: translate(-50%, -50%) scale(0);
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 1.5px solid var(--ink);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--paper); border: 1.5px solid var(--ink);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
   transition: transform 0.3s var(--ease-snap), background 0.25s, border-color 0.25s, box-shadow 0.25s;
   z-index: 2;
 }
-.death-marker.visible {
-  animation: pop 0.5s var(--ease-snap) forwards;
-}
+.death-marker.visible { animation: pop 0.5s var(--ease-snap) forwards; }
 .death-marker:hover, .death-marker:focus-visible {
   background: var(--ink); border-color: var(--ink);
-  box-shadow: 0 0 0 6px rgba(15,14,19,0.08);
+  box-shadow: 0 0 0 6px rgba(15,14,19,0.08); z-index: 10;
 }
 .death-marker:hover svg, .death-marker:focus-visible svg { stroke: var(--paper); }
 .death-marker svg { width: 15px; height: 15px; stroke: var(--ink); fill: none; stroke-width: 1.6; transition: stroke 0.25s; }
-
-/* default-visible name label — alternates above/below for breathing room */
 .death-marker .name {
   position: absolute; left: 50%; transform: translateX(-50%);
   font: 500 11.5px/1.1 var(--font-sans);
@@ -545,48 +424,30 @@ body::before {
 }
 .death-marker[data-side="above"] .name { bottom: calc(100% + 14px); }
 .death-marker[data-side="below"] .name { top: calc(100% + 30px); }
-.death-marker:hover .name {
-  color: var(--orange-deep);
-  transform: translateX(-50%) translateY(-2px);
-}
+.death-marker:hover .name { color: var(--orange-deep); transform: translateX(-50%) translateY(-2px); }
 .death-marker[data-side="below"]:hover .name { transform: translateX(-50%) translateY(2px); }
-
-/* hover-only trigger detail — appears as a floating callout */
 .death-marker .trigger {
   position: absolute; left: 50%;
   font: 400 11px/1.4 var(--font-mono);
-  letter-spacing: -0.005em; color: var(--ink-soft);
+  color: var(--ink-soft);
   background: var(--paper);
   border: 1px solid var(--ink);
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: 8px; padding: 8px 12px;
   white-space: nowrap; pointer-events: none;
   opacity: 0; transform: translateX(-50%) translateY(6px);
   transition: opacity 0.25s, transform 0.3s var(--ease-out);
-  box-shadow: var(--shadow-md);
-  z-index: 5;
+  box-shadow: var(--shadow-md); z-index: 5;
 }
 .death-marker[data-side="above"] .trigger { top: calc(100% + 14px); }
-.death-marker[data-side="below"] .trigger {
-  bottom: calc(100% + 14px);
-  transform: translateX(-50%) translateY(-6px);
-}
-.death-marker:hover .trigger, .death-marker:focus-visible .trigger {
-  opacity: 1; transform: translateX(-50%) translateY(0);
-}
-.death-marker:hover, .death-marker:focus-visible { z-index: 10; }
-
-/* dim neighbors when one marker is hovered */
+.death-marker[data-side="below"] .trigger { bottom: calc(100% + 14px); transform: translateX(-50%) translateY(-6px); }
+.death-marker:hover .trigger, .death-marker:focus-visible .trigger { opacity: 1; transform: translateX(-50%) translateY(0); }
 .timeline-rail:has(.death-marker:hover) .death-marker:not(:hover) .name { opacity: 0.25; transition: opacity 0.25s; }
 .timeline-rail:has(.death-marker:hover) .death-marker:not(:hover) { opacity: 0.4; transition: opacity 0.25s; }
-
 @keyframes pop {
   0% { transform: translate(-50%, -50%) scale(0); }
   60% { transform: translate(-50%, -50%) scale(1.18); }
   100% { transform: translate(-50%, -50%) scale(1); }
 }
-
-/* hint text in timeline */
 .timeline .hint {
   position: absolute; top: 24px; left: 0; right: 0;
   text-align: center;
@@ -600,7 +461,6 @@ body::before {
    ============================================================ */
 .cta-content { display: grid; gap: 32px; grid-template-columns: 1fr; }
 @media (min-width: 900px) { .cta-content { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; } }
-
 .code-block {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.12);
@@ -608,8 +468,7 @@ body::before {
   padding: 22px 24px;
   font-family: var(--font-mono);
   font-size: 13px; line-height: 1.65;
-  overflow-x: auto;
-  white-space: pre;
+  overflow-x: auto; white-space: pre;
   position: relative;
 }
 .code-block::before {
@@ -626,37 +485,23 @@ body::before {
    library
    ============================================================ */
 .library { margin-top: 100px; }
-.library .head {
-  text-align: center; margin-bottom: 48px;
-}
+.library .head { text-align: center; margin-bottom: 48px; }
 .library .head h2 { max-width: 22ch; margin: 0 auto 14px; }
 .library .head h2 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 .library .head p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto; font-size: 16px; line-height: 1.55; }
-
 .library-grid {
   display: grid; gap: 16px;
   grid-template-columns: 1fr;
 }
 @media (min-width: 800px) { .library-grid { grid-template-columns: 1fr 1fr 1fr; } }
-
 .lib-card {
-  border: 1px solid var(--ink);
-  border-radius: var(--r-l);
-  padding: 28px;
-  background: var(--paper);
-  display: flex; flex-direction: column;
-  min-height: 240px;
+  border: 1px solid var(--ink); border-radius: var(--r-l);
+  padding: 28px; background: var(--paper);
+  display: flex; flex-direction: column; min-height: 240px;
   transition: transform 0.3s var(--ease-out), background 0.2s, box-shadow 0.3s;
   position: relative; overflow: hidden;
 }
-.lib-card::after {
-  content: ""; position: absolute; inset: -1px; border-radius: inherit;
-  background: linear-gradient(135deg, transparent 40%, rgba(240,176,128,0.18));
-  opacity: 0; transition: opacity 0.4s;
-  pointer-events: none;
-}
-.lib-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.lib-card:hover::after { opacity: 1; }
+.lib-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--paper-2); }
 .lib-card .lib-tag {
   font-family: var(--font-mono); font-size: 11px;
   color: var(--orange-deep); margin-bottom: 14px;
@@ -685,23 +530,17 @@ footer {
   border-top: 1px solid rgba(15,14,19,0.1);
   font-size: 13px; color: var(--ink-soft);
 }
-footer .foot-row {
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;
-}
+footer .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
 footer .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
 footer a:hover { color: var(--ink); }
 footer .brand-label { font-weight: 600; color: var(--ink); margin-bottom: 6px; }
 
-/* ============================================================
-   scroll-reveal
-   ============================================================ */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
 section { scroll-margin-top: 100px; }
 .panel { scroll-margin-top: 100px; }
 
-/* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   .logo-track { animation: none; }
@@ -713,16 +552,16 @@ section { scroll-margin-top: 100px; }
 
 <div class="page">
 
-<!-- ============================================================ NAV ============================================================ -->
+<!-- NAV -->
 <nav class="nav">
   <a href="/" class="nav-brand">
     <span class="logo-mark">30</span>
     <span>30x · AI-Native GTM</span>
   </a>
   <div class="nav-links">
-    <a href="#constitutions">Constitutions</a>
+    <a href="#architecture">Architecture</a>
     <a href="#how">How it works</a>
-    <a href="#research">Research</a>
+    <a href="#flavor">Our flavor</a>
     <a href="#library">Library</a>
   </div>
   <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="nav-cta">
@@ -731,44 +570,32 @@ section { scroll-margin-top: 100px; }
   </a>
 </nav>
 
-<!-- ============================================================ HERO ============================================================ -->
+<!-- HERO -->
 <section class="hero">
   <span class="hero-eyebrow">
     <span class="pulse-dot"></span>
-    OPEN SOURCE
+    SCAFFOLD · v1
     <span class="sep">·</span>
     BUILT FOR CLAUDE CODE
   </span>
   <h1>AI-native GTM is <em><span class="strike">hard to win</span></em></h1>
-  <p class="sub">Six constitutions, ten real death cases, twenty-two signal sources. The Claude Code repo for go-to-market when your product changes every week.</p>
+  <p class="sub">A scaffold for the GTM operating system AI startups actually need. Eight functional folders, mapped to a real org. Fork it, fill it in, let Claude Code drive the repeatable work.</p>
   <div class="hero-ctas">
     <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="btn btn--primary">
       View on GitHub
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </a>
-    <a href="#constitutions" class="btn btn--ghost">Read the manifesto</a>
+    <a href="#architecture" class="btn btn--ghost">See the architecture</a>
   </div>
   <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="num">6</span>
-      <span class="lbl">Constitutions</span>
-    </div>
-    <div class="hero-stat">
-      <span class="num">22</span>
-      <span class="lbl">Signal sources</span>
-    </div>
-    <div class="hero-stat">
-      <span class="num">10</span>
-      <span class="lbl">Death cases</span>
-    </div>
-    <div class="hero-stat">
-      <span class="num">42</span>
-      <span class="lbl">Files shipped</span>
-    </div>
+    <div class="hero-stat"><span class="num">8</span><span class="lbl">Folders</span></div>
+    <div class="hero-stat"><span class="num">11</span><span class="lbl">Skills</span></div>
+    <div class="hero-stat"><span class="num">22</span><span class="lbl">Signal sources</span></div>
+    <div class="hero-stat"><span class="num">10</span><span class="lbl">Death cases</span></div>
   </div>
 </section>
 
-<!-- ============================================================ LOGO STRIP ============================================================ -->
+<!-- LOGO STRIP -->
 <div class="logo-strip">
   <div class="eyebrow">Patterns extracted from</div>
   <div class="logo-track">
@@ -777,127 +604,88 @@ section { scroll-margin-top: 100px; }
   </div>
 </div>
 
-<!-- ============================================================ CONSTITUTIONS ============================================================ -->
-<section class="panel panel--sky reveal" id="constitutions">
+<!-- ARCHITECTURE (v1 hero panel) -->
+<section class="panel panel--sky reveal" id="architecture">
   <div class="panel-inner">
     <span class="panel-eyebrow">Operating model</span>
     <div class="panel-head">
-      <h2>Six <em>constitutions</em> for the way AI companies actually grow</h2>
-      <p class="desc">Six mental models. Each backed by evidence. If a tactic doesn't trace back to one, it doesn't belong here.</p>
+      <h2>The shape of a real <em>GTM org</em>, mapped to folders.</h2>
+      <p class="desc">Eight functional folders. Each with a clear entry point. Each tied to skills Claude can run. The architecture is the IP — your opinions live inside.</p>
     </div>
 
-    <div class="viz-block">
-      <div class="constellation">
-        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-          <!-- spokes -->
-          <line class="spoke" x1="200" y1="200" x2="200" y2="70"/>
-          <line class="spoke" x1="200" y1="200" x2="313" y2="135"/>
-          <line class="spoke" x1="200" y1="200" x2="313" y2="265"/>
-          <line class="spoke" x1="200" y1="200" x2="200" y2="330"/>
-          <line class="spoke" x1="200" y1="200" x2="87"  y2="265"/>
-          <line class="spoke" x1="200" y1="200" x2="87"  y2="135"/>
-          <!-- core -->
-          <circle class="core" cx="200" cy="200" r="36"/>
-          <text class="core-label" x="200" y="204">CLAUDE</text>
-          <!-- nodes -->
-          <g>
-            <circle class="node-circle" cx="200" cy="70" r="28"/>
-            <text class="node-label" x="200" y="74">ICP</text>
-          </g>
-          <g>
-            <circle class="node-circle" cx="313" cy="135" r="28"/>
-            <text class="node-label" x="313" y="139">Ladder</text>
-          </g>
-          <g>
-            <circle class="node-circle" cx="313" cy="265" r="28"/>
-            <text class="node-label" x="313" y="269">Funnel</text>
-          </g>
-          <g>
-            <circle class="node-circle" cx="200" cy="330" r="28"/>
-            <text class="node-label" x="200" y="334">Radar</text>
-          </g>
-          <g>
-            <circle class="node-circle" cx="87" cy="265" r="28"/>
-            <text class="node-label" x="87" y="269">Integration</text>
-          </g>
-          <g>
-            <circle class="node-circle" cx="87" cy="135" r="28"/>
-            <text class="node-label" x="87" y="139">Agent</text>
-          </g>
-        </svg>
-      </div>
-      <ul class="feature-list">
-        <li><span class="dot"></span><span><b>Living ICP.</b> Drifts because models drift. Weekly revision with log.</span></li>
-        <li><span class="dot"></span><span><b>Technical Credibility Ladder.</b> Five rungs of proof an engineer verifies in 5 minutes.</span></li>
-        <li><span class="dot"></span><span><b>Community → Customer.</b> Star → trial → paid → enterprise. Outbound is last.</span></li>
-        <li><span class="dot"></span><span><b>Capability Obsolescence Radar.</b> Your real competitor is GPT-6.</span></li>
-        <li><span class="dot"></span><span><b>Integration-Led Growth.</b> Marketing doesn't compound; integrations do.</span></li>
-        <li><span class="dot"></span><span><b>Agent-Native Distribution.</b> If you're not callable by Claude, you're invisible.</span></li>
-      </ul>
-    </div>
-
-    <div class="consts">
-      <div class="const reveal">
-        <div class="const__num">01</div>
-        <div class="const__title">Living ICP</div>
-        <p class="const__body">Static ICP rots in 30 days. Add three axes traditional SaaS doesn't have: LLM Maturity, Data Residency, Spend Trajectory.</p>
-        <div class="const__tag">refreshed weekly</div>
-      </div>
-      <div class="const reveal">
-        <div class="const__num">02</div>
-        <div class="const__title">Technical Credibility Ladder</div>
-        <p class="const__body">Five proof rungs. Cursor reached $2B ARR with zero marketing because the product was the proof at every rung.</p>
-        <div class="const__tag">no skipping</div>
-      </div>
-      <div class="const reveal">
-        <div class="const__num">03</div>
-        <div class="const__title">Community → Customer</div>
-        <p class="const__body">Anthropic enterprise logos: 54% self-serve. Bolt: $0 → $40M ARR in 5 months. No outbound.</p>
-        <div class="const__tag">outbound is the last step</div>
-      </div>
-      <div class="const reveal">
-        <div class="const__num">04</div>
-        <div class="const__title">Capability Obsolescence Radar</div>
-        <p class="const__body">Jasper: $90M projected → ~$55M after GPT-3.5. Character.AI: $5B → $2.7B reverse acqui-hire.</p>
-        <div class="const__tag">10 death cases in /research</div>
-      </div>
-      <div class="const reveal">
-        <div class="const__num">05</div>
-        <div class="const__title">Integration-Led Growth</div>
-        <p class="const__body">v0 hit 4M users via Vercel's 6M-developer base. Every generation has a one-click deploy. Integration <em>is</em> the GTM.</p>
-        <div class="const__tag">integrations compound</div>
-      </div>
-      <div class="const reveal">
-        <div class="const__num">06</div>
-        <div class="const__title">Agent-Native Distribution</div>
-        <p class="const__body">10,000+ MCP servers shipped in H2 2025. Anthropic donated MCP to Linux Foundation. If you're not in 2026, you're invisible.</p>
-        <div class="const__tag">the 2026 entry</div>
-      </div>
+    <div class="folder-grid">
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/strategy" class="folder">
+        <div class="folder__icon">strategy/</div>
+        <div class="folder__name">Strategy</div>
+        <p class="folder__desc">WHO we are. WHO we sell to. WHAT we believe. Positioning, ICP, personas, pricing, brand, competitors, capability radar.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>README.md → about → positioning → icp</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/content" class="folder">
+        <div class="folder__icon">content/</div>
+        <div class="folder__name">Content</div>
+        <p class="folder__desc">Demand gen through writing. Strategy, calendar, library, blog drafts, social threads.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>strategy.md</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/pipeline" class="folder">
+        <div class="folder__icon">pipeline/</div>
+        <div class="folder__name">Pipeline</div>
+        <p class="folder__desc">Prospects and customers. Sales playbook, signal library, target accounts, outbound sequences, objections, customer roster.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>playbook.md</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/assets" class="folder">
+        <div class="folder__icon">assets/</div>
+        <div class="folder__name">Assets</div>
+        <p class="folder__desc">Branded outputs. Decks, one-pagers, illustrations, logos — all bound by visual rules.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>design.md (visual brand system)</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/skills" class="folder">
+        <div class="folder__icon">skills/</div>
+        <div class="folder__name">Skills</div>
+        <p class="folder__desc">Eleven repeatable Claude actions. Setup, ICP scoring, deck-build, outbound sequencing, objection handling, drift audit, more.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>setup/SKILL.md</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/workflows" class="folder">
+        <div class="folder__icon">workflows/</div>
+        <div class="folder__name">Workflows</div>
+        <p class="folder__desc">Decision trees for humans. OSS funnel, model launch response, integration partner outreach, agent-native distribution.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>by scenario</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/playbooks" class="folder">
+        <div class="folder__icon">playbooks/</div>
+        <div class="folder__name">Playbooks</div>
+        <p class="folder__desc">Emergency response. Foundation model commoditizes your feature. Competitor ships. Viral moment. Capability obsolescence.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>by event</div>
+      </a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/sync" class="folder">
+        <div class="folder__icon">sync/</div>
+        <div class="folder__name">Sync</div>
+        <p class="folder__desc">MCP-first live data connectors. GitHub, Slack, Linear, Attio, OpenRouter, HF Hub — feeds the signal library.</p>
+        <div class="folder__entry"><span class="lbl">Open first</span>README.md + mcp-servers.md</div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ HOW IT WORKS ============================================================ -->
+<!-- HOW IT WORKS -->
 <section class="panel reveal" id="how">
   <div class="panel-inner">
     <span class="panel-eyebrow">How it works</span>
     <div class="panel-head">
       <h2>Claude reads the repo. You stop <em>pasting context</em>.</h2>
-      <p class="desc">Clone it. Fill <code>context/</code> once. Run GTM from a single prompt. Knowledge persists in git and grows weekly.</p>
+      <p class="desc">Clone it. Fill <code>strategy/</code> once. Run GTM from a single prompt. Knowledge persists in git and grows weekly.</p>
     </div>
 
     <div class="viz-block viz-right">
       <ul class="feature-list">
-        <li><span class="dot"></span><span><b>CLAUDE.md</b> · 2-minute lobby. Claude reads this first.</span></li>
-        <li><span class="dot"></span><span><b>context/</b> · ICP, signals, positioning, competitors, personas.</span></li>
-        <li><span class="dot"></span><span><b>skills/</b> · Seven SKILL.md actions, from setup to drift-audit.</span></li>
-        <li><span class="dot"></span><span><b>research/</b> · 950 lines of empirical evidence.</span></li>
-        <li><span class="dot"></span><span><b>workflows/ + playbooks/</b> · Decision trees and emergency scripts.</span></li>
-        <li><span class="dot"></span><span><b>sync/</b> · MCP-first live data connectors.</span></li>
+        <li><span class="dot"></span><span><b><code>CLAUDE.md</code></b> · 2-minute lobby. Claude reads this first.</span></li>
+        <li><span class="dot"></span><span><b><code>strategy/</code></b> · positioning, ICP, personas, brand, competitors.</span></li>
+        <li><span class="dot"></span><span><b><code>skills/</code></b> · 11 SKILL.md actions, from <code>setup</code> to <code>weekly-drift-audit</code>.</span></li>
+        <li><span class="dot"></span><span><b><code>assets/design.md</code></b> · binding visual rules for every deck and one-pager.</span></li>
+        <li><span class="dot"></span><span><b><code>workflows/ + playbooks/</code></b> · decision trees and emergency scripts.</span></li>
+        <li><span class="dot"></span><span><b><code>sync/</code></b> · MCP-first live data connectors.</span></li>
       </ul>
       <div class="flow">
         <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid meet">
-          <!-- arrows -->
           <path class="flow-arrow delay-1" d="M 140 70 L 240 70" marker-end="url(#a1)"/>
           <path class="flow-arrow delay-2" d="M 140 175 Q 200 175 240 175" marker-end="url(#a1)"/>
           <path class="flow-arrow delay-3" d="M 140 280 L 240 280" marker-end="url(#a1)"/>
@@ -908,37 +696,19 @@ section { scroll-margin-top: 100px; }
               <path d="M 0 0 L 6 4 L 0 8 z" fill="var(--ink)"/>
             </marker>
           </defs>
-
-          <!-- left column: source files -->
-          <g>
-            <rect class="flow-box" x="20" y="48" width="120" height="44" rx="8"/>
-            <text class="flow-text" x="80" y="74">CLAUDE.md</text>
-          </g>
-          <g>
-            <rect class="flow-box" x="20" y="153" width="120" height="44" rx="8"/>
-            <text class="flow-text" x="80" y="179">context/</text>
-          </g>
-          <g>
-            <rect class="flow-box" x="20" y="258" width="120" height="44" rx="8"/>
-            <text class="flow-text" x="80" y="284">skills/</text>
-          </g>
-          <g>
-            <rect class="flow-box" x="20" y="363" width="120" height="44" rx="8"/>
-            <text class="flow-text" x="80" y="389">research/</text>
-          </g>
-
-          <!-- center: Claude -->
+          <g><rect class="flow-box" x="20" y="48" width="120" height="44" rx="8"/><text class="flow-text" x="80" y="74">CLAUDE.md</text></g>
+          <g><rect class="flow-box" x="20" y="153" width="120" height="44" rx="8"/><text class="flow-text" x="80" y="179">strategy/</text></g>
+          <g><rect class="flow-box" x="20" y="258" width="120" height="44" rx="8"/><text class="flow-text" x="80" y="284">skills/</text></g>
+          <g><rect class="flow-box" x="20" y="363" width="120" height="44" rx="8"/><text class="flow-text" x="80" y="389">pipeline/</text></g>
           <g>
             <rect class="flow-box active" x="240" y="180" width="120" height="100" rx="14"/>
             <text class="flow-text" x="300" y="220" style="font-family:var(--font-sans);font-weight:600;font-size:14px;">Claude</text>
             <text class="flow-text" x="300" y="244" style="font-family:var(--font-mono);font-size:10px;fill:var(--ink-soft);">reads + reasons</text>
           </g>
-
-          <!-- right: outputs -->
           <g>
             <rect class="flow-box" x="460" y="180" width="120" height="100" rx="14"/>
             <text class="flow-text" x="520" y="220" style="font-family:var(--font-sans);font-weight:600;font-size:14px;">outputs/</text>
-            <text class="flow-text" x="520" y="244" style="font-family:var(--font-mono);font-size:10px;fill:var(--ink-soft);">briefs · pitches</text>
+            <text class="flow-text" x="520" y="244" style="font-family:var(--font-mono);font-size:10px;fill:var(--ink-soft);">briefs · decks · pitches</text>
           </g>
         </svg>
       </div>
@@ -946,13 +716,40 @@ section { scroll-margin-top: 100px; }
   </div>
 </section>
 
-<!-- ============================================================ RESEARCH ============================================================ -->
+<!-- OUR FLAVOR (formerly "Six Constitutions") -->
+<section class="panel panel--purple reveal" id="flavor">
+  <div class="panel-inner">
+    <span class="panel-eyebrow">Our flavor (optional)</span>
+    <div class="panel-head">
+      <h2>If you want a <em>worked example</em>, here's ours.</h2>
+      <p class="desc">The scaffold is opinion-free. But we filled it in once — with six mental models, ten real death cases, twenty-two signal sources — so you can see what good looks like. Use as inspiration, not as gospel.</p>
+    </div>
+
+    <ul class="feature-list" style="max-width: 56ch; margin: 0 auto 32px;">
+      <li><span class="dot"></span><span><b>Living ICP</b> · refresh weekly because foundation models drift</span></li>
+      <li><span class="dot"></span><span><b>Technical Credibility Ladder</b> · 5 proof rungs for engineering buyers</span></li>
+      <li><span class="dot"></span><span><b>Community → Customer Funnel</b> · star → trial → paid → enterprise</span></li>
+      <li><span class="dot"></span><span><b>Capability Obsolescence Radar</b> · your real competitor is GPT-6</span></li>
+      <li><span class="dot"></span><span><b>Integration-Led Growth</b> · marketing doesn't compound, integrations do</span></li>
+      <li><span class="dot"></span><span><b>Agent-Native Distribution</b> · be callable by Claude / Cursor / ChatGPT</span></li>
+    </ul>
+
+    <div style="text-align: center;">
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/examples/our-flavor" class="btn btn--ghost">
+        Explore examples/our-flavor/
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH / DEATH CASES -->
 <section class="panel panel--orange reveal" id="research">
   <div class="panel-inner">
-    <span class="panel-eyebrow">Research</span>
+    <span class="panel-eyebrow">Evidence</span>
     <div class="panel-head">
       <h2>Ten AI startups died. The <em>patterns</em> are documented.</h2>
-      <p class="desc">2022 to 2026. Every case sourced. Use them as anchors when you fill <code>context/competitor-radar.md</code>.</p>
+      <p class="desc">2022 to 2026. Every case sourced from public reporting. Lives in <code>examples/our-flavor/research/</code> — use as anchors when filling your <code>strategy/capability-radar.md</code>.</p>
     </div>
 
     <div class="timeline" id="timeline">
@@ -965,52 +762,52 @@ section { scroll-margin-top: 100px; }
         <div class="timeline-year" style="left: 72%;">2025</div>
         <div class="timeline-year" style="left: 94%;">2026</div>
 
-        <div class="death-marker" data-x="9"  data-side="above" data-trigger="GPT-3.5 → ARR proj cut 40%">
+        <div class="death-marker" data-x="9" data-side="above">
           <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           <span class="name">Jasper</span>
           <span class="trigger">GPT-3.5 cut ARR proj ~40%</span>
         </div>
-        <div class="death-marker" data-x="21" data-side="below" data-trigger="ChatGPT disclosed → -48%">
+        <div class="death-marker" data-x="21" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M6 18L18 6"/></svg>
           <span class="name">Chegg</span>
           <span class="trigger">ChatGPT impact → -48% in a day</span>
         </div>
-        <div class="death-marker" data-x="34" data-side="above" data-trigger="DevDay '23 cleared wave">
+        <div class="death-marker" data-x="34" data-side="above">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg>
           <span class="name">PDF Chat</span>
           <span class="trigger">OpenAI DevDay '23 → category cleared</span>
         </div>
-        <div class="death-marker" data-x="44" data-side="below" data-trigger="$4B → MSFT non-acquisition">
+        <div class="death-marker" data-x="44" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M12 4v16"/></svg>
           <span class="name">Inflection</span>
           <span class="trigger">$4B → MSFT non-acquisition (Mar '24)</span>
         </div>
-        <div class="death-marker" data-x="55" data-side="above" data-trigger="$8M/mo burn, CEO out">
+        <div class="death-marker" data-x="55" data-side="above">
           <svg viewBox="0 0 24 24"><path d="M3 12h18"/></svg>
           <span class="name">Stability</span>
           <span class="trigger">$8M/mo burn → CEO resign, layoffs</span>
         </div>
-        <div class="death-marker" data-x="64" data-side="below" data-trigger="$1B → Amazon team license">
+        <div class="death-marker" data-x="64" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
           <span class="name">Adept</span>
           <span class="trigger">$1B → Amazon license + team (Jun '24)</span>
         </div>
-        <div class="death-marker" data-x="74" data-side="above" data-trigger="$5B → $2.7B reverse acqui-hire">
+        <div class="death-marker" data-x="74" data-side="above">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
           <span class="name">Character.AI</span>
           <span class="trigger">$5B → $2.7B Google reverse acqui-hire</span>
         </div>
-        <div class="death-marker" data-x="82" data-side="below" data-trigger="$700M → $116M, units bricked">
+        <div class="death-marker" data-x="82" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M12 2L3 21h18z"/></svg>
           <span class="name">Humane Pin</span>
           <span class="trigger">$700M → $116M to HP, units bricked</span>
         </div>
-        <div class="death-marker" data-x="89" data-side="above" data-trigger="gpt-realtime → margins collapsed">
+        <div class="death-marker" data-x="89" data-side="above">
           <svg viewBox="0 0 24 24"><path d="M3 12c0-4 4-8 9-8s9 4 9 8-4 8-9 8"/></svg>
           <span class="name">Voice AI</span>
           <span class="trigger">gpt-realtime → margins collapsed</span>
         </div>
-        <div class="death-marker" data-x="95" data-side="below" data-trigger="$350M → Meta acquired Dec '25">
+        <div class="death-marker" data-x="95" data-side="below">
           <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 5 2 8L12 17l-6.5 5 2-8L2 9h7z" fill="none"/></svg>
           <span class="name">Rewind</span>
           <span class="trigger">a16z $350M → Meta acquired (Dec '25)</span>
@@ -1020,14 +817,14 @@ section { scroll-margin-top: 100px; }
   </div>
 </section>
 
-<!-- ============================================================ CTA ============================================================ -->
+<!-- CTA -->
 <section class="panel panel--ink reveal">
   <div class="panel-inner">
     <span class="panel-eyebrow">Clone it</span>
     <div class="cta-content">
       <div>
-        <h2 style="margin-bottom: 22px;">Clone. Fill in context.<br/><em>Ship by lunch.</em></h2>
-        <p style="color: rgba(251,249,244,0.65); line-height: 1.6; max-width: 36ch; margin-bottom: 32px;">MIT licensed. 42 files. 5,353 lines. Six constitutions. Ten real death cases. Twenty-two signal sources.</p>
+        <h2 style="margin-bottom: 22px;">Clone. Fill in <code style="background:rgba(255,255,255,0.1);color:var(--paper);">strategy/</code>. <em>Ship by lunch.</em></h2>
+        <p style="color: rgba(251,249,244,0.65); line-height: 1.6; max-width: 38ch; margin-bottom: 32px;">MIT licensed. Eight functional folders. Eleven skills. Two worked examples (helmsman + our-flavor). Architecture is the IP — your opinions go inside.</p>
         <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="btn" style="background: var(--paper); color: var(--ink); border-color: var(--paper);">
           View on GitHub
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -1035,67 +832,66 @@ section { scroll-margin-top: 100px; }
       </div>
       <div class="code-block"><span class="body"><span class="prompt">$</span>git clone https://github.com/30XCOMPANY/30x-ai-native-gtm-starter my-gtm
 <span class="prompt">$</span>cd my-gtm
+<span class="prompt">$</span>rm -rf examples/   <span class="comment"># remove reference fills</span>
 <span class="prompt">$</span>claude
-<span class="comment"># then:</span>
+<span class="comment"># then say:</span>
 &gt; run the setup skill on https://yourcompany.com
 
-<span class="comment"># Claude reads CLAUDE.md, fills context/</span>
-<span class="comment"># from your public footprint.</span></span></div>
+<span class="comment"># Claude reads CLAUDE.md, populates strategy/</span>
+<span class="comment"># from your public footprint. Refine. Ship.</span></span></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ LIBRARY ============================================================ -->
+<!-- LIBRARY -->
 <section id="library" class="library reveal">
   <div class="head">
-    <h2>Browse the <em>research</em></h2>
-    <p>950 lines. 250+ URLs. Every claim cited. Updated as new cases land.</p>
+    <h2>Start <em>somewhere</em></h2>
+    <p>Three entry points depending on what you need. Each links into the live repo on GitHub.</p>
   </div>
   <div class="library-grid">
-    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/research/01-capability-obsolescence-and-icp.md" class="lib-card">
-      <div class="lib-tag">research/01</div>
-      <h3>Capability Obsolescence + AI-Native ICP</h3>
-      <p>Ten death cases. Three AI-native ICP dimensions traditional SaaS doesn't have. Five early-warning signals.</p>
-      <span class="lib-link">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/strategy/README.md" class="lib-card">
+      <div class="lib-tag">strategy/</div>
+      <h3>Define WHO you are + WHO you sell to</h3>
+      <p>The brain of the operation. Eight files: positioning, ICP, personas, pricing, brand, competitors, capability-radar, about. Refreshed weekly.</p>
+      <span class="lib-link">Read the fill order →</span>
     </a>
-    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/research/02-gtm-motions-by-company.md" class="lib-card">
-      <div class="lib-tag">research/02</div>
-      <h3>Twelve GTM Teardowns</h3>
-      <p>Anthropic's MCP land grab. Cursor's zero-marketing $2B ARR. Lovable's founder tweet engine. Cline's anti-Cursor narrative.</p>
-      <span class="lib-link">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/assets/design.md" class="lib-card">
+      <div class="lib-tag">assets/design.md</div>
+      <h3>Visual brand rules every asset obeys</h3>
+      <p>Color, type, spacing, motion. Binding on every deck, one-pager, illustration generated by skills. Read this once, internalize.</p>
+      <span class="lib-link">Read the rules →</span>
     </a>
-    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/research/03-signals-and-pricing.md" class="lib-card">
-      <div class="lib-tag">research/03</div>
-      <h3>Signal Sources + Pricing Decoded</h3>
-      <p>The 22-signal AI-native library. Twelve pricing teardowns with live numbers. Five anti-SaaS pricing rules.</p>
-      <span class="lib-link">Read <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+    <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/tree/main/examples/helmsman" class="lib-card">
+      <div class="lib-tag">examples/helmsman/</div>
+      <h3>See what a filled scaffold looks like</h3>
+      <p>Fictional AI eval-infra company. Every strategy + pipeline file filled. Two sample outputs from real skills. Read in 20 minutes to learn the workflow.</p>
+      <span class="lib-link">Read the worked example →</span>
     </a>
   </div>
 </section>
 
-<!-- ============================================================ FOOTER ============================================================ -->
+<!-- FOOTER -->
 <footer>
   <div class="foot-row">
     <div>
-      <div class="brand-label">30x AI-Native GTM Starter</div>
-      <div>Structurally inspired by <a class="link" href="https://github.com/KarlRaf/gtm-starter-kit">gtm-starter-kit</a>. Philosophically rebuilt for AI-native.</div>
-      <div style="margin-top: 8px;">MIT licensed · Part of the <a class="link" href="https://github.com/30XCOMPANY">30x</a> family.</div>
+      <div class="brand-label">30x AI-Native GTM Starter · v1</div>
+      <div>A scaffold for AI-native go-to-market. Architecture is the IP.</div>
+      <div style="margin-top: 8px;">Structurally inspired by <a class="link" href="https://github.com/KarlRaf/gtm-starter-kit">gtm-starter-kit</a> · MIT · Part of the <a class="link" href="https://github.com/30XCOMPANY">30x</a> family.</div>
     </div>
     <div class="foot-links">
       <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter">GitHub</a>
+      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/CHANGELOG.md">Changelog</a>
       <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/LICENSE">License</a>
       <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/issues">Issues</a>
-      <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter/blob/main/CLAUDE.md">CLAUDE.md</a>
     </div>
   </div>
 </footer>
 
 </div>
 
-<!-- ============================================================ JS ============================================================ -->
 <script>
 (function () {
-  // Scroll-reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
@@ -1106,12 +902,10 @@ section { scroll-margin-top: 100px; }
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  // Timeline: position markers + stagger reveal
   const timeline = document.getElementById('timeline');
   if (timeline) {
     const markers = timeline.querySelectorAll('.death-marker');
     markers.forEach((m) => { m.style.left = m.dataset.x + '%'; });
-
     const timelineIO = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
@@ -1125,7 +919,6 @@ section { scroll-margin-top: 100px; }
     timelineIO.observe(timeline);
   }
 
-  // Flow diagram: cycle highlight through source files
   const flow = document.querySelector('.flow');
   if (flow) {
     const boxes = flow.querySelectorAll('.flow-box');
