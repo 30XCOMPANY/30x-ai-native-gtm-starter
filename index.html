@@ -139,37 +139,7 @@ body::before {
 /* ============================================================
    hero
    ============================================================ */
-.hero { padding: 80px 0 100px; text-align: center; position: relative; }
-.hero > *:not(.hero-bg) { position: relative; z-index: 2; }
-.hero-bg {
-  position: absolute; inset: -100px -20% -40px;
-  pointer-events: none; z-index: 0;
-  overflow: hidden;
-  /* doughnut mask: hide center where H1 sits, show ring of viz outside */
-  mask-image: radial-gradient(ellipse 38% 52% at 50% 50%, transparent 0%, transparent 55%, black 75%, black 88%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 38% 52% at 50% 50%, transparent 0%, transparent 55%, black 75%, black 88%, transparent 100%);
-}
-.hero-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.hero-bg .hb-line { stroke: var(--ink); stroke-width: 0.9; opacity: 0.28; fill: none; stroke-dasharray: 2 5; }
-.hero-bg .hb-orbit-line { stroke: var(--ink); stroke-width: 0.8; opacity: 0.22; fill: none; }
-.hero-bg .hb-orbit-line--accent { stroke: var(--orange-deep); opacity: 0.35; }
-.hero-bg .hb-dot { fill: var(--ink); }
-.hero-bg .hb-dot--accent { fill: var(--orange-deep); }
-.hero-bg .hb-spin-slow { transform-origin: 50% 50%; transform-box: view-box; animation: hb-spin 48s linear infinite; }
-.hero-bg .hb-spin-rev  { transform-origin: 50% 50%; transform-box: view-box; animation: hb-spin 64s linear infinite reverse; }
-.hero-bg .hb-drift     { animation: hb-drift 22s ease-in-out infinite alternate; }
-.hero-bg .hb-pulse-a { animation: hb-pulse 3.5s ease-in-out infinite; }
-.hero-bg .hb-pulse-b { animation: hb-pulse 5s ease-in-out infinite 1.2s; }
-.hero-bg .hb-pulse-c { animation: hb-pulse 4.5s ease-in-out infinite 2.4s; }
-.hero-bg .hb-glow {
-  position: absolute; left: 5%; right: 5%; top: -10%; bottom: -10%;
-  background:
-    radial-gradient(ellipse at 18% 30%, rgba(240,176,128,0.16), transparent 45%),
-    radial-gradient(ellipse at 82% 70%, rgba(200,228,243,0.18), transparent 45%);
-  animation: hb-breathe 9s ease-in-out infinite;
-  filter: blur(60px);
-  mix-blend-mode: normal;
-}
+.hero { padding: 90px 0 110px; text-align: center; position: relative; }
 
 /* hero eyebrow pill */
 .hero-eyebrow {
@@ -232,20 +202,7 @@ body::before {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-@keyframes hb-spin { to { transform: rotate(360deg); } }
-@keyframes hb-drift {
-  0%   { transform: translate(0, 0); }
-  100% { transform: translate(18px, -10px); }
-}
-@keyframes hb-pulse {
-  0%, 100% { opacity: 0.25; }
-  50%      { opacity: 0.7; }
-}
-@keyframes hb-breathe {
-  0%, 100% { opacity: 0.55; transform: scale(0.92); }
-  50%      { opacity: 1;    transform: scale(1.08); }
-}
-.hero h1 { max-width: 13ch; margin: 0 auto 26px; opacity: 0; animation: rise 1.2s var(--ease-out) 0.1s forwards; }
+.hero h1 { max-width: 14ch; margin: 0 auto 26px; opacity: 0; animation: rise 1.2s var(--ease-out) 0.1s forwards; }
 .hero h1 em {
   font-family: var(--font-serif);
   font-style: italic;
@@ -776,54 +733,14 @@ section { scroll-margin-top: 100px; }
 
 <!-- ============================================================ HERO ============================================================ -->
 <section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hb-glow"></div>
-    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
-      <!-- outer orbit rings, slowly rotating -->
-      <g class="hb-spin-slow">
-        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="340" ry="240"/>
-        <ellipse class="hb-orbit-line" cx="600" cy="350" rx="500" ry="340"/>
-        <circle class="hb-dot hb-pulse-a" cx="940" cy="350" r="3"/>
-        <circle class="hb-dot hb-pulse-b" cx="260" cy="350" r="2.5"/>
-        <circle class="hb-dot--accent hb-pulse-c" cx="1100" cy="350" r="3.5"/>
-        <circle class="hb-dot hb-pulse-a" cx="100" cy="350" r="2.5"/>
-      </g>
-      <g class="hb-spin-rev">
-        <ellipse class="hb-orbit-line--accent" cx="600" cy="350" rx="240" ry="170"/>
-        <circle class="hb-dot--accent hb-pulse-c" cx="600" cy="180" r="3.5"/>
-        <circle class="hb-dot hb-pulse-a" cx="600" cy="520" r="2.5"/>
-        <circle class="hb-dot hb-pulse-b" cx="840" cy="350" r="2.5"/>
-      </g>
-      <!-- drifting cluster of tiny dots -->
-      <g class="hb-drift">
-        <circle class="hb-dot hb-pulse-b" cx="180" cy="170" r="2"/>
-        <circle class="hb-dot hb-pulse-c" cx="1030" cy="200" r="1.8"/>
-        <circle class="hb-dot hb-pulse-a" cx="200" cy="540" r="2.2"/>
-        <circle class="hb-dot hb-pulse-b" cx="1010" cy="510" r="1.8"/>
-        <circle class="hb-dot--accent hb-pulse-c" cx="120" cy="370" r="2"/>
-        <circle class="hb-dot hb-pulse-a" cx="1080" cy="370" r="1.8"/>
-        <circle class="hb-dot hb-pulse-b" cx="380" cy="120" r="1.5"/>
-        <circle class="hb-dot hb-pulse-c" cx="820" cy="600" r="1.8"/>
-        <circle class="hb-dot hb-pulse-a" cx="380" cy="600" r="1.5"/>
-        <circle class="hb-dot--accent hb-pulse-b" cx="820" cy="120" r="2"/>
-      </g>
-      <!-- subtle dashed connectors -->
-      <path class="hb-line hb-pulse-a" d="M 180 170 Q 380 90 600 180"/>
-      <path class="hb-line hb-pulse-b" d="M 1030 200 Q 820 90 600 180"/>
-      <path class="hb-line hb-pulse-c" d="M 200 540 Q 400 620 600 520"/>
-      <path class="hb-line hb-pulse-a" d="M 1010 510 Q 820 620 600 520"/>
-    </svg>
-  </div>
   <span class="hero-eyebrow">
     <span class="pulse-dot"></span>
     OPEN SOURCE
     <span class="sep">·</span>
-    v1 · MIT
-    <span class="sep">·</span>
-    950 LINES OF RESEARCH
+    BUILT FOR CLAUDE CODE
   </span>
-  <h1>AI-native GTM is <em><span class="strike">hard to win</span></em></h1>
-  <p class="sub">Foundation models reshuffle the market every six months. Most playbooks weren't built for that.</p>
+  <h1>GTM that survives the <em>next model release</em>.</h1>
+  <p class="sub">Six constitutions, backed by ten real death cases and twenty-two AI-native signal sources. The Claude Code repo for go-to-market when your product changes every week.</p>
   <div class="hero-ctas">
     <a href="https://github.com/30XCOMPANY/30x-ai-native-gtm-starter" class="btn btn--primary">
       View on GitHub
